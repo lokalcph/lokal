@@ -1,0 +1,148 @@
+<header>
+  <!-- Mobil burger -->
+  <div class="burger">
+    <div class="line"></div>
+    <div class="line short"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- Desktop titel/logo + menu -->
+  <div class="desktop-header">
+    <div class="desktop-title">
+      <span class="title-text">lokal</span>
+      <img src="src/assets/logo.svg" alt="lokal logo" class="logo-hover" />
+    </div>
+    <nav class="desktop-menu">
+      <a href="/menu">se menu</a>
+      <a href="/galleri">galleri</a>
+      <a href="/kontakt">kontakt</a>
+    </nav>
+  </div>
+
+  <!-- Mobil overlay-menu -->
+  <div class="mobile-menu">
+    <p>lokal</p>
+    <a href="/menu">se menu</a>
+    <a href="/galleri">galleri</a>
+    <a href="/kontakt">kontakt</a>
+  </div>
+</header>
+
+<style>
+  header {
+    font-family: "Futura", sans-serif;
+    margin: 0;
+    padding: 1rem;
+    position: fixed;
+  }
+
+  /* Burger */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 60px;
+    align-items: left;
+    cursor: pointer;
+  }
+
+  .burger .line {
+    height: 1px;
+    background-color: var(--black);
+    width: 100%;
+  }
+
+  .burger .short {
+    width: 60%;
+    align-self: right;
+  }
+
+  /* Mobilmenu */
+  .mobile-menu {
+    display: none;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--light-sand);
+    text-align: right;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 10;
+  }
+
+  .mobile-menu a,
+  .mobile-menu p {
+    font-size: 1.2rem;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--red);
+  }
+
+  /* Desktop skjult by default */
+  .desktop-header {
+    display: none;
+  }
+
+  /* Desktop layout */
+  @media screen and (min-width: 850px) {
+    .burger,
+    .mobile-menu {
+      display: none;
+    }
+
+    .desktop-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-left: 0.5rem;
+    }
+
+    .desktop-title {
+      font-size: 2.5rem;
+      color: var(--black);
+      position: relative;
+      cursor: pointer;
+      height: 3.2rem;
+    }
+
+    .title-text {
+      display: block;
+    }
+
+    .logo-hover {
+      display: none;
+      top: 0;
+      left: 0;
+      max-width: 120px;
+    }
+
+    .desktop-title:hover .title-text {
+      display: none;
+    }
+
+    .desktop-title:hover .logo-hover {
+      display: block;
+    }
+
+    .desktop-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .desktop-menu a {
+      font-size: 1rem;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .desktop-menu a:hover {
+      color: var(--red);
+    }
+  }
+</style>
