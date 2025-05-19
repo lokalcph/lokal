@@ -33,9 +33,7 @@ main {
   font-family: "Futura PT Demi";
   font-style: normal;
   font-weight: normal;
-  src:
-    local("Futura PT Demi"),
-    url("FuturaCyrillicDemi.woff") format("woff");
+  src: url(fonts/FuturaCyrillicDemi.ttf);
 }
 
 @font-face {

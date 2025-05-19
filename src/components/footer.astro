@@ -1,0 +1,90 @@
+<footer>
+  <div class="footer">
+    <img src="src/assets/footer.png" alt="lokal café" />
+    <div class="flex_col">
+      <div class="sociale">
+        <p>sociale</p>
+        <p>
+          <a
+            href="https://www.instagram.com/lokalcph/"
+            target="_blank"
+            rel="noopener noreferrer">instagram - @lokalcph</a
+          >
+          <br />
+          <a
+            href="https://www.facebook.com/lokalcph/"
+            target="_blank"
+            rel="noopener noreferrer">facebook - Lokalcph</a
+          >
+        </p>
+      </div>
+      <div class="kontakt">
+        <p>email: anders@handcraftedcph.com</p>
+        <p>tlf: 51 91 13 53</p>
+        <p>adresse: sønder boulevard 59</p>
+      </div>
+      <div class="aabningstider">
+        <p>åbningstider</p>
+        <p>mandag til fredag 8 - 16</p>
+        <p>lørdag 8 - 17</p>
+      </div>
+    </div>
+  </div>
+  <h1>lokal</h1>
+
+  <style>
+    .footer {
+      background-color: var(--red);
+      padding: 2rem 1rem;
+      font-family: "Futura", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-position: left center;
+    }
+
+    .flex_col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+    }
+
+    .sociale {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: right;
+    }
+
+    .kontakt {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .aabningstider {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: right;
+    }
+
+    .footer a,
+    p {
+      color: var(--light-sand);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-family: "Futura", sans-serif;
+      color: var(--light-sand);
+      font-size: 8.4375rem;
+      line-height: 1.2;
+    }
+  </style>
+</footer>
