@@ -24,7 +24,6 @@ pnpm-debug.log*
 .idea/
 
 # Ignorer video-filer
-*.mp4
 *.mov
 *.avi
 *.mkv
