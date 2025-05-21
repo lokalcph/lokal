@@ -10,9 +10,24 @@ import Layout from "../layouts/Layout.astro";
     <h1>galleri <span class="unika_lodret">unika</span></h1>
     <div class="grid_galleri">
       <div class="grid">
-        <div class="felt1"><img src="/src/assets/mobilimg1.jpg" alt="" /></div>
-        <div class="felt2"><img src="/src/assets/mobilimg2.png" alt="" /></div>
-        <div class="felt3"><img src="/src/assets/mobilimg3.png" alt="" /></div>
+        <div class="felt1">
+          <div class="image-wrapper">
+            <span class="image-title">Titel 1</span>
+            <img src="/src/assets/mobilimg1.jpg" alt="" />
+          </div>
+        </div>
+        <div class="felt2">
+          <div class="image-wrapper">
+            <span class="image-title">Titel 1</span>
+            <img src="/src/assets/mobilimg2.png" alt="" />
+          </div>
+        </div>
+        <div class="felt3">
+          <div class="image-wrapper">
+            <span class="image-title">Titel 1</span>
+            <img src="/src/assets/mobilimg3.png" alt="" />
+          </div>
+        </div>
         <div class="felt4">
           <div class="scroll_produkt">
             <img src="/src/assets/mobilimg4.png" alt="placeholder" />
@@ -58,6 +73,9 @@ import Layout from "../layouts/Layout.astro";
       scroll-behavior: smooth;
       background-color: var(--bg);
     }
+    main {
+      padding-top: 1rem;
+    }
     h1 {
       color: var(--Red, #a6192e);
       font-family: "Futura", sans-serif;
@@ -65,6 +83,7 @@ import Layout from "../layouts/Layout.astro";
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      margin-top: 6rem;
     }
     .unika_lodret {
       font-family: "Gabriela", serif;
@@ -134,6 +153,24 @@ import Layout from "../layouts/Layout.astro";
     .felt9,
     .felt10 {
       border-bottom: 1px solid black;
+    }
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .image-title {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background-color: rgba(255, 255, 255, 0.7); /* baggrund for læsbarhed */
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      font-family: "Futura", sans-serif;
+      color: black;
+      z-index: 10;
+      border-radius: 4px;
     }
   </style>
 </Layout>
