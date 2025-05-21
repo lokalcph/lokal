@@ -7,6 +7,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
   <Header />
   <main>
+    <h1>galleri <span class="unika_lodret">unika</span></h1>
     <div class="grid_galleri">
       <div class="grid">
         <div class="felt1"><img src="/src/assets/mobilimg1.jpg" alt="" /></div>
@@ -52,10 +53,35 @@ import Layout from "../layouts/Layout.astro";
   <Footer />
 
   <style>
-    /* GALLERI */
+    /* GALLERI GRID */
     html {
       scroll-behavior: smooth;
       background-color: var(--bg);
+    }
+    h1 {
+      color: var(--Red, #a6192e);
+      font-family: "Futura", sans-serif;
+      font-size: 4.5625rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    .unika_lodret {
+      font-family: "Gabriela", serif;
+      font-size: 1.4rem;
+      color: var(--Red, #a6192e);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-bottom: 0.5rem;
+      font-weight: 200;
+    }
+    /* BILLEDER I GRIDET */
+    /* gør at alle billeder fylder hele feltet i gridet */
+    .grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .grid {
       display: grid;
@@ -64,6 +90,7 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .felt1 {
+      border-top: 1px solid black;
       grid-column: 1/-1;
     }
     .felt2 {
@@ -76,12 +103,13 @@ import Layout from "../layouts/Layout.astro";
       grid-column: 1/-1;
     }
     .scroll_produkt {
-      min-width: 36%;
+      min-width: 40%;
       flex-shrink: 0;
     }
+
     .img_grid2 {
       display: grid;
-      grid-template-columns: 2fr 2fr; /* Venstre kolonne: 1 del, højre: 2 dele */
+      grid-template-columns: 1fr 2fr; /* Venstre kolonne: 1 del, højre: 2 dele */
       grid-column: 1/-1;
       grid-auto-rows: auto;
     }
