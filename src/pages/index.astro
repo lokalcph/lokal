@@ -39,6 +39,58 @@ import Layout from "../layouts/Layout.astro";
         class="info_img"
       />
     </section>
+    <section class="baggrund_menu_img">
+      <div class="menu_grid">
+        <div>
+          <span>espresso</span><span>25</span><span class="usynlig">25</span>
+        </div>
+        <div>
+          <span>pour over</span><span>60/100</span>
+        </div>
+        <div>
+          <span>americano</span><span>32</span><span class="usynlig">25</span>
+        </div>
+        <div>
+          <span>ice coffee</span><span>42/45</span>
+        </div>
+        <div>
+          <span>cortado</span><span>32</span><span class="usynlig">25</span>
+        </div>
+        <div>
+          <span>cold brew</span><span>40</span>
+        </div>
+        <div>
+          <span>flat white</span><span>40</span><span class="usynlig">25</span>
+        </div>
+        <div>
+          <span>saft/brus</span><span>35/37</span>
+        </div>
+        <div>
+          <span>cafe latte</span><span>40</span><span class="usynlig">xx</span>
+        </div>
+        <div class="usynlig">
+          <span>cafe latte</span><span>40</span><span class="usynlig">x</span>
+        </div>
+        <div>
+          <span>cappuchino</span><span>40</span><span class="usynlig">25</span>
+        </div>
+        <div>
+          <span>bmo</span><span>37</span>
+        </div>
+        <div>
+          <span>te </span><span>35</span><span class="usynlig">xx</span>
+        </div>
+        <div>
+          <span>crossaint</span><span>42</span>
+        </div>
+        <div>
+          <span>matcha</span><span>40</span><span class="usynlig">25</span>
+        </div>
+        <div>
+          <span>kaffe kort</span><span>300</span>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </Layout>
@@ -161,6 +213,54 @@ import Layout from "../layouts/Layout.astro";
     height: auto;
     object-fit: cover;
     align-self: flex-start;
+  }
+
+  /* BAGGRUND MENU IMG */
+
+  .baggrund_menu_img {
+    position: relative;
+    padding: 5rem 0 5rem 6rem;
+    background-color: var(--bg);
+    overflow: hidden;
+  }
+
+  .baggrund_menu_img::before {
+    content: "";
+    position: absolute;
+    top: -11rem;
+    left: -20rem;
+    width: 600px;
+    height: 100%;
+    background-image: url("/src/assets/baggrund_menu_img.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left top;
+    z-index: 0;
+    opacity: 50%;
+  }
+
+  .menu_grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 0rem; /* afstand mellem rækker og kolonner */
+    width: 100%;
+    max-width: 800px;
+    font-family: "Futura", sans-serif;
+    font-size: 1rem;
+  }
+
+  .menu_grid > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    padding: 0.3rem 0;
+    border-bottom: 1.5px solid var(--black);
+  }
+
+  .usynlig {
+    color: var(--bg);
   }
 
   /* MEDIA QUERIES */
