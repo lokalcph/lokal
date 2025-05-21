@@ -42,7 +42,7 @@ import Layout from "../layouts/Layout.astro";
   /* HERO */
 
   .hero {
-    background-color: var(--light-sand);
+    background-color: var(--bg);
     padding: 1rem;
   }
 
@@ -72,7 +72,7 @@ import Layout from "../layouts/Layout.astro";
 
   .lokal {
     font-family: "Futura", sans-serif;
-    color: var(--red);
+    color: var(--accent);
     font-size: 9.375rem;
     font-weight: 500;
     line-height: 1;
@@ -82,7 +82,7 @@ import Layout from "../layouts/Layout.astro";
   .cph {
     font-family: "Gabriela", serif;
     font-size: 1.875rem;
-    color: var(--red);
+    color: var(--accent);
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     margin-bottom: 0.5rem;
@@ -91,7 +91,7 @@ import Layout from "../layouts/Layout.astro";
   /* INFO */
 
   .info {
-    background-color: var(--light-sand);
+    background-color: var(--bg);
   }
 
   .info_text {
@@ -105,8 +105,9 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .line {
-    border-top: 1px solid var(--red);
+    border-top: 1px solid var(--accent);
     margin: 20px 0;
+    padding: -1rem;
   }
   h2 {
     font-family: "Futura", sans-serif;
@@ -132,6 +133,6 @@ import Layout from "../layouts/Layout.astro";
 
   a:hover {
     text-decoration: underline;
-    color: var(--red);
+    color: var(--accent);
   }
 </style>
