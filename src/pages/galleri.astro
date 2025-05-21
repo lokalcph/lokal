@@ -7,59 +7,91 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
   <Header />
   <main>
+    <!-- H1 -->
+    <!-- bruger span så unika kan styles til at stå lodret -->
     <h1>galleri <span class="unika_lodret">unika</span></h1>
-    <div class="grid_galleri">
-      <div class="grid">
-        <div class="felt1">
+
+    <!-- BILLEDER I GRIDET -->
+    <div class="grid_galleriside">
+      <div class="felt1">
+        <!-- giver klassen imgage-wrapper så det er muligt at positionere tekst ovenpå billedet -->
+        <div class="image-wrapper">
+          <span class="image-title">Titel 1</span>
+          <img src="/src/assets/mobilimg1.jpg" alt="" />
+        </div>
+      </div>
+      <div class="felt2">
+        <div class="image-wrapper">
+          <span class="image-title">Titel 1</span>
+          <img src="/src/assets/mobilimg2.png" alt="" />
+        </div>
+      </div>
+      <div class="felt3">
+        <div class="image-wrapper">
+          <span class="image-title">Titel 1</span>
+          <img src="/src/assets/mobilimg3.png" alt="" />
+        </div>
+      </div>
+
+      <!-- SCROLLBAR -->
+      <div class="felt4">
+        <div class="scroll_produkt">
           <div class="image-wrapper">
-            <span class="image-title">Titel 1</span>
-            <img src="/src/assets/mobilimg1.jpg" alt="" />
+            <img src="/src/assets/mobilimg4.png" alt="placeholder" />
           </div>
         </div>
-        <div class="felt2">
+        <div class="scroll_produkt">
+          <img src="/src/assets/mobilimg4.png" alt="placeholder" />
+        </div>
+        <div class="scroll_produkt">
+          <img src="/src/assets/mobilimg4.png" alt="placeholder" />
+        </div>
+        <div class="scroll_produkt">
+          <img src="/src/assets/mobilimg4.png" alt="placeholder" />
+        </div>
+        <div class="scroll_produkt">
+          <img src="/src/assets/mobilimg4.png" alt="placeholder" />
+        </div>
+      </div>
+
+      <!-- giver klassen img_grid2 så der kommer 1:2 forhold mellem kolonnerne ved at bruge grid-template-columns -->
+      <div class="img_grid2">
+        <div class="felt5">
           <div class="image-wrapper">
-            <span class="image-title">Titel 1</span>
-            <img src="/src/assets/mobilimg2.png" alt="" />
-          </div>
-        </div>
-        <div class="felt3">
-          <div class="image-wrapper">
-            <span class="image-title">Titel 1</span>
-            <img src="/src/assets/mobilimg3.png" alt="" />
-          </div>
-        </div>
-        <div class="felt4">
-          <div class="scroll_produkt">
-            <img src="/src/assets/mobilimg4.png" alt="placeholder" />
-          </div>
-          <div class="scroll_produkt">
-            <img src="/src/assets/mobilimg4.png" alt="placeholder" />
-          </div>
-          <div class="scroll_produkt">
-            <img src="/src/assets/mobilimg4.png" alt="placeholder" />
-          </div>
-          <div class="scroll_produkt">
-            <img src="/src/assets/mobilimg4.png" alt="placeholder" />
-          </div>
-          <div class="scroll_produkt">
-            <img src="/src/assets/mobilimg4.png" alt="placeholder" />
-          </div>
-        </div>
-        <div class="img_grid2">
-          <div class="felt5">
+            <span class="image-title">Værk 5</span>
             <img src="/src/assets/mobilimg5.png" alt="" />
           </div>
-          <div class="felt6">
+        </div>
+        <div class="felt6">
+          <div class="image-wrapper">
+            <span class="image-title">Værk 6</span>
             <img src="/src/assets/mobilimg6.png" alt="" />
           </div>
         </div>
+      </div>
 
-        <div class="felt7"><img src="/src/assets/mobilimg7.png" alt="" /></div>
-        <div class="felt8"><img src="/src/assets/mobilimg8.png" alt="" /></div>
-
-        <div class="felt9"><img src="/src/assets/mobilimg9.png" alt="" /></div>
-        <div class="felt10">
-          <img src="/src/assets/mobilimg10.png" alt="" />
+      <div class="felt7">
+        <div class="image-wrapper">
+          <span class="image-title">Værk 7</span>
+          <img src="/src/assets/mobilimg7.png" alt="Værk 7" />
+        </div>
+      </div>
+      <div class="felt8">
+        <div class="image-wrapper">
+          <span class="image-title">Værk 8</span>
+          <img src="/src/assets/mobilimg8.png" alt="Værk 8" />
+        </div>
+      </div>
+      <div class="felt9">
+        <div class="image-wrapper">
+          <span class="image-title">Værk 9</span>
+          <img src="/src/assets/mobilimg9.png" alt="Værk 9" />
+        </div>
+      </div>
+      <div class="felt10">
+        <div class="image-wrapper">
+          <span class="image-title">Værk 10</span>
+          <img src="/src/assets/mobilimg10.png" alt="Værk 10" />
         </div>
       </div>
     </div>
@@ -96,13 +128,13 @@ import Layout from "../layouts/Layout.astro";
     }
     /* BILLEDER I GRIDET */
     /* gør at alle billeder fylder hele feltet i gridet */
-    .grid img {
+    .grid_galleriside img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .grid {
+    .grid_galleriside {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-auto-rows: auto;
