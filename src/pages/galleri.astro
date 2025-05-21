@@ -1,0 +1,96 @@
+---
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Header />
+  <main>
+    <div class="grid_galleri">
+      <div class="grid">
+        <div class="felt1">boks1</div>
+        <div class="felt2">boks2</div>
+        <div class="felt3">boks3</div>
+        <div class="felt4">
+          <div class="scroll_produkt"><img src="" alt="placeholder" /></div>
+          <div class="scroll_produkt"><img src="" alt="placeholder" /></div>
+          <div class="scroll_produkt"><img src="" alt="placeholder" /></div>
+          <div class="scroll_produkt"><img src="" alt="placeholder" /></div>
+        </div>
+        <div class="img_grid2">
+          <div class="felt5">boks5</div>
+          <div class="felt6">boks6</div>
+        </div>
+
+        <div class="felt7">boks7</div>
+        <div class="felt8">boks8</div>
+
+        <div class="felt9">boks9</div>
+        <div class="felt10">boks10</div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 50px;
+      border: 1px solid var(--black);
+    }
+
+    .felt1 {
+      grid-column: 1/-1;
+
+      background-color: var(--accent);
+    }
+    .felt2,
+    .felt3 {
+      background-color: var(--bg);
+      border: 1px solid var(--black);
+    }
+    .felt4 {
+      overflow-x: auto;
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      background-color: aqua;
+      grid-column: 1/-1;
+    }
+    .scroll_produkt {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+    .img_grid2 {
+      display: grid;
+      grid-template-columns: 1fr 2fr; /* Venstre kolonne: 1 del, højre: 2 dele */
+      grid-column: 1/-1;
+      grid-auto-rows: auto;
+    }
+    .felt5 {
+      background-color: var(--bg);
+      grid-column: 1;
+      border: 1px solid var(--black);
+    }
+    .felt6 {
+      background-color: var(--accent);
+      grid-column: 2;
+      border: 1px solid var(--black);
+    }
+    .felt7,
+    .felt8 {
+      background-color: var(--bg);
+    }
+    .felt9 {
+      background-color: var(--accent);
+      border: 1px solid var(--black);
+    }
+    .felt10 {
+      background-color: var(--bg);
+      border: 1px solid var(--black);
+    }
+  </style>
+</Layout>
