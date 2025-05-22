@@ -78,7 +78,7 @@ import Layout from "../layouts/Layout.astro";
           <span>bmo</span><span>37</span>
         </div>
         <div>
-          <span>te </span><span>35</span><span class="usynlig">xx</span>
+          <span>sing te </span><span>35</span><span class="usynlig">xx</span>
         </div>
         <div>
           <span>crossaint</span><span>42</span>
@@ -110,11 +110,13 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .hero_logo {
-    width: 100%;
+    width: clamp(300px, 30vw, 600px);
     height: auto;
-    grid-area: 1 / 1;
-    z-index: 0;
-    margin-top: 9rem;
+    margin-top: clamp(4rem, 10vw, 9rem);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.3s ease;
   }
 
   .hero_text {
@@ -125,24 +127,29 @@ import Layout from "../layouts/Layout.astro";
     justify-content: center;
     gap: 0.25rem;
     z-index: 1;
+    transition: all 0.3s ease;
   }
 
   .lokal {
     font-family: "Futura", sans-serif;
     color: var(--accent);
-    font-size: 9.375rem;
+    font-size: clamp(9.375rem, 12vw, 12rem);
     font-weight: 700;
     line-height: 1;
+    transition: font-size 0.3s ease;
+    text-align: left;
+    align-self: flex-end;
     margin: 0;
   }
 
   .cph {
     font-family: "Gabriela", serif;
-    font-size: 1.875rem;
+    font-size: clamp(2rem, 2vw, 1.875rem);
     color: var(--accent);
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    transition: font-size 0.3s ease;
   }
 
   /* INFO */
@@ -162,6 +169,7 @@ import Layout from "../layouts/Layout.astro";
 
   .line {
     border-top: 2px solid var(--accent);
+    padding: 0.8rem;
     margin: 0.5rem 0 0.5rem 9.5rem;
   }
 
@@ -209,13 +217,13 @@ import Layout from "../layouts/Layout.astro";
 
   .info_img {
     width: 100%;
-    max-width: 300px;
+    max-width: 16.625rem;
     height: auto;
     object-fit: cover;
     align-self: flex-start;
   }
 
-  /* BAGGRUND MENU IMG */
+  /* KAFFE MENU */
 
   .baggrund_menu_img {
     position: relative;
@@ -236,7 +244,7 @@ import Layout from "../layouts/Layout.astro";
     background-size: contain;
     background-position: left top;
     z-index: 0;
-    opacity: 50%;
+    opacity: 70%;
   }
 
   .menu_grid {
@@ -263,30 +271,186 @@ import Layout from "../layouts/Layout.astro";
     color: var(--bg);
   }
 
-  /* MEDIA QUERIES */
+  /************* MEDIA QUERIES *************/
 
   @media screen and (min-width: 850px) {
+    .hero {
+      padding-left: 2rem;
+    }
+
+    .hero-layer {
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .hero_logo {
+      width: clamp(160px, 40vw, 400px);
+      height: auto;
+      grid-area: 1 / 1;
+      z-index: 0;
+      margin-left: 50rem;
+      margin-top: 6.7rem;
+      display: block;
+      position: absolute;
+    }
+
     .hero_text {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      grid-area: 1 / 1;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: flex-start;
+      gap: 0.25rem;
+      z-index: 1;
+      transition: all 0.3s ease;
+      position: relative;
+      margin-left: 0;
+      margin-top: 23rem;
     }
 
     .lokal {
-      font-size: 6.25rem;
+      font-family: "Futura", sans-serif;
+      color: var(--accent);
+      font-size: clamp(30.5rem, 12vw, 12rem);
+      font-weight: 700;
+      line-height: 1;
+      z-index: 1;
+      text-align: left;
     }
 
     .cph {
-      font-size: 1.875rem;
+      font-family: "Gabriela", serif;
+      font-size: clamp(5.5rem, 12vw, 4rem);
+      color: var(--accent);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-bottom: 3.5rem;
+      z-index: 1;
     }
 
+    /* INFO */
+
+    .info {
+      background-color: var(--bg);
+      margin-right: 27rem;
+      margin-top: 8rem;
+    }
+
+    .info_text {
+      display: flex;
+      flex-direction: column;
+      justify-content: right;
+      text-align: right;
+      gap: 0.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .line {
+      border-top: 2px solid var(--accent);
+      margin: 0.5rem 0 0.5rem 30.5rem;
+      z-index: 2;
+    }
+
+    #longer {
+      margin: 0.5rem 0 0.5rem 15.5rem;
+    }
+
+    h2 {
+      font-family: "Futura", sans-serif;
+      font-weight: 500;
+      color: var(--black);
+      font-size: 8rem;
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2:hover {
+      color: var(--bg);
+      -webkit-text-stroke: 1px var(--black);
+    }
+
+    p {
+      font-family: "Futura", sans-serif;
+      color: var(--black);
+      font-size: 1.7rem;
+      line-height: 1.2;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      font-family: "Futura", sans-serif;
+      color: var(--black);
+      font-size: 1.4rem;
+      text-decoration: none;
+      padding: 0;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: var(--accent);
+    }
+
+    /* IMG */
+
     .info_img {
-      width: 50%;
-      max-width: 600px;
+      width: 100%;
+      max-width: 34.11244rem;
       height: auto;
-      margin-right: 2rem;
       align-self: flex-start;
+      position: absolute;
+      z-index: 1;
+      margin-top: -30rem;
+    }
+
+    /* KAFFE MENU */
+
+    .menu_grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem 0rem; /* afstand mellem rækker og kolonner */
+      width: 100%;
+      max-width: 1200px;
+      font-family: "Futura", sans-serif;
+      font-size: 1.7rem;
+    }
+
+    .menu_grid > div {
+      display: flex;
+      justify-content: space-around;
+      align-items: baseline;
+      padding: 0.3rem 0;
+      border-bottom: 1.5px solid var(--black);
+    }
+
+    .usynlig {
+      color: var(--bg);
+    }
+
+    .baggrund_menu_img {
+      position: relative;
+      padding: 20rem 0 5rem 40rem;
+      background-color: var(--bg);
+      overflow: hidden;
+    }
+
+    .baggrund_menu_img::before {
+      content: "";
+      position: absolute;
+      top: -4rem;
+      left: -12rem;
+      width: 57rem;
+      height: 100%;
+      background-image: url("/src/assets/baggrund_menu_img.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left top;
+      z-index: 0;
+      opacity: 50%;
     }
   }
 </style>
