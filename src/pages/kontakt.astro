@@ -1,0 +1,195 @@
+---
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Header />
+  <main>
+    <section class="kontakt_hero bg_lamps">
+      <span class="kontakt_tekst">kontakt</span>
+      <span class="os_tekst">os</span>
+    </section>
+
+    <section class="grid_1-1">
+      <div>
+        <h2>hold dit event hos os</h2>
+        <p>
+          søger du et sted med god kaffe, rolig stemning og æstetik i hver
+          detalje? lokal kan danne rammen om små events, lanceringer,
+          morgenmøder eller hyggelige samlinger. vi holder af det enkle – og
+          hjælper gerne med at skabe en atmosfære, der passer til netop dit
+          arrangement. skriv til os med dine idéer – så finder vi ud af det
+          sammen.
+        </p>
+      </div>
+      <div class="image_container">
+        <img
+          src="src/assets/lokal_kontakt.png"
+          alt="billede af lokals lokale"
+        />
+      </div>
+    </section>
+
+    <section class="form_grid">
+      <div class="text_col">
+        <h2>lidt praktisk</h2>
+        <p>
+          vi har plads til maks 25 personer indenfor – og op til 50, hvis du
+          ønsker at inddrage vores udendørsområde. <br />
+          prisen afhænger af arrangementets karakter og behov – vi finder en løsning
+          sammen. <br />
+          har du spørgsmål, idéer eller bare lyst til at vende mulighederne? <br
+          />
+          skriv til os – vi glæder os til at høre fra dig.
+        </p>
+      </div>
+
+      <div class="form_col">
+        <form class="kontakt-formular">
+          <input type="text" placeholder="[dit navn]" required />
+          <input type="email" placeholder="[din e-mail]" required />
+          <input
+            type="tel"
+            name="telefon"
+            placeholder="[dit telefonnummer]"
+            pattern="\d{8}"
+            maxlength="8"
+            minlength="8"
+            required
+            title="Indtast præcis 8 cifre (kun tal)"
+          />
+          <textarea placeholder="[din besked]" required></textarea>
+          <button type="submit">send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    background-color: var(--bg);
+  }
+  .kontakt_hero {
+    display: flex;
+    /* så 'os' følger 'kontakt' nederst */
+    align-items: baseline;
+    gap: 0.2rem;
+    margin-bottom: 2rem;
+    padding-top: 8rem;
+    margin-left: 2rem;
+  }
+
+  .bg_lamps {
+    background-image: url("/src/assets/kontakt_lamper.png");
+    background-position: top -5px right 2px;
+    background-repeat: no-repeat;
+    background-size: 70%;
+  }
+
+  .kontakt_tekst {
+    font-family: "Futura", sans-serif;
+    color: var(--accent);
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .os_tekst {
+    font-family: "Gabriela", serif;
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: "Futura", sans-serif;
+    font-weight: 500;
+    color: var(--black);
+    font-size: 2rem;
+    line-height: 1;
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+
+  p {
+    font-family: "Futura", sans-serif;
+    color: var(--black);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .grid_1-1 {
+    margin-left: 2rem;
+  }
+
+  .grid_1-1 p {
+    margin-right: 2rem;
+  }
+
+  .image_container {
+    display: flex;
+    justify-content: flex-end; /* pushes image to the right */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .image_container img {
+    width: 100%; /* optional: control image size */
+    height: auto;
+  }
+
+  /* KONTAKT FORMULAR */
+
+  .text_col {
+    padding-left: 2rem; /* giver teksten luft */
+    padding-right: 2rem;
+  }
+
+  .form_col {
+    margin: 0;
+    padding: 0;
+  }
+
+  .kontakt-formular {
+    margin: 3rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .kontakt-formular input,
+  .kontakt-formular textarea {
+    font-family: "Futura", sans-serif;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    background: transparent;
+    color: #000;
+    padding-left: 2rem;
+  }
+
+  .kontakt-formular button {
+    position: absolute;
+    right: 0;
+    bottom: -2.5rem;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .form_col {
+    border-right: 2px solid black;
+    padding-right: 3rem;
+  }
+</style>
