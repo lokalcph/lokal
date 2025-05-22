@@ -1,0 +1,94 @@
+---
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Header />
+  <main>
+    <section class="hero">
+      <img
+        class="product_img"
+        src="src/assets/rispapirslampe_single.webp"
+        alt="en unika japansk rispapirslampe"
+      />
+    </section>
+    <section class="product_info">
+      <div class="info_text">
+        <h2 class="product_name">rispapir</h2>
+        <div class="line"></div>
+        <p>unika rispapirslampe fremstillet i japan</p>
+        <p>1200,-</p>
+        <div class="line"></div>
+        <p>find den på boulevarden 79</p>
+        <a class="back_cta" href="galleri.astro">tilbage</a>
+        <div class="line"></div>
+      </div>
+    </section>
+  </main>
+  <!-- <Footer /> -->
+</Layout>
+
+<style>
+  .product_img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .product_info {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .info_text {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: right;
+    text-align: right;
+    gap: 0.5rem;
+    margin-right: 0;
+  }
+
+  .line {
+    border-top: 1.5px solid var(--accent);
+    margin: 0.5rem 0 0.5rem;
+  }
+
+  h2 {
+    font-family: "Futura", sans-serif;
+    font-weight: 500;
+    color: var(--black);
+    font-size: 5.5rem;
+    line-height: 1;
+    margin: 0;
+    padding: 0.3rem 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  p {
+    font-family: "Futura", sans-serif;
+    color: var(--black);
+    font-size: 0.9375rem;
+    line-height: 1.2;
+    margin: 0;
+    padding-right: 0.5rem;
+  }
+
+  a {
+    font-family: "Futura", sans-serif;
+    color: var(--black);
+    font-size: 0.9375rem;
+    text-decoration: none;
+    padding-right: 0.5rem;
+  }
+
+  .back_cta:hover {
+    text-decoration: underline;
+    color: var(--accent);
+    background-color: yellow;
+  }
+</style>
