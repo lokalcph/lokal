@@ -2,6 +2,7 @@
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
 import Layout from "../layouts/Layout.astro";
+import Scroll_galleri from "../components/scroll.astro";
 ---
 
 <Layout>
@@ -13,15 +14,15 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <section class="grid_1-1">
-      <div>
+      <div class="event_tekst">
         <h2>hold dit event hos os</h2>
         <p>
           søger du et sted med god kaffe, rolig stemning og æstetik i hver
-          detalje? lokal kan danne rammen om små events, lanceringer,
-          morgenmøder eller hyggelige samlinger. vi holder af det enkle – og
-          hjælper gerne med at skabe en atmosfære, der passer til netop dit
-          arrangement. skriv til os med dine idéer – så finder vi ud af det
-          sammen.
+          detalje? <br />
+          lokal kan danne rammen om små events, lanceringer, morgenmøder eller hyggelige
+          samlinger. vi holder af det enkle – og hjælper gerne med at skabe en atmosfære,
+          der passer til netop dit arrangement. <br /><br />
+          skriv til os med dine idéer – så finder vi ud af det sammen.
         </p>
       </div>
       <div class="image_container">
@@ -38,10 +39,13 @@ import Layout from "../layouts/Layout.astro";
         <p>
           vi har plads til maks 25 personer indenfor – og op til 50, hvis du
           ønsker at inddrage vores udendørsområde. <br />
+          <br />
           prisen afhænger af arrangementets karakter og behov – vi finder en løsning
           sammen. <br />
+          <br />
           har du spørgsmål, idéer eller bare lyst til at vende mulighederne? <br
           />
+          <br />
           skriv til os – vi glæder os til at høre fra dig.
         </p>
       </div>
@@ -65,6 +69,7 @@ import Layout from "../layouts/Layout.astro";
         </form>
       </div>
     </section>
+    <Scroll_galleri />
   </main>
   <Footer />
 </Layout>
@@ -79,13 +84,13 @@ import Layout from "../layouts/Layout.astro";
     align-items: baseline;
     gap: 0.2rem;
     margin-bottom: 2rem;
-    padding-top: 8rem;
-    margin-left: 2rem;
+    padding-top: clamp(8rem, 22vw, 25rem);
+    padding-left: 1rem;
   }
 
   .bg_lamps {
     background-image: url("/src/assets/kontakt_lamper.png");
-    background-position: top -5px right 2px;
+    background-position: top -8px right 1px;
     background-repeat: no-repeat;
     background-size: 70%;
   }
@@ -93,7 +98,7 @@ import Layout from "../layouts/Layout.astro";
   .kontakt_tekst {
     font-family: "Futura", sans-serif;
     color: var(--accent);
-    font-size: 6rem;
+    font-size: clamp(5.7rem, 20vw, 22rem);
     font-weight: 700;
     line-height: 1;
     margin: 0;
@@ -101,7 +106,7 @@ import Layout from "../layouts/Layout.astro";
 
   .os_tekst {
     font-family: "Gabriela", serif;
-    font-size: 2rem;
+    font-size: clamp(2rem, 8vw, 15rem);
     color: var(--accent);
     margin-bottom: 0.5rem;
   }
@@ -110,7 +115,8 @@ import Layout from "../layouts/Layout.astro";
     font-family: "Futura", sans-serif;
     font-weight: 500;
     color: var(--black);
-    font-size: 2rem;
+    /* font-size: 1.5rem; */
+    font-size: clamp(1.5rem, 3vw, 3rem);
     line-height: 1;
     margin: 0;
     padding-bottom: 1rem;
@@ -118,14 +124,16 @@ import Layout from "../layouts/Layout.astro";
 
   p {
     font-family: "Futura", sans-serif;
+    font-weight: 500;
     color: var(--black);
-    font-size: 0.9375rem;
+    /* font-size: 0.8rem; */
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
     line-height: 1.6;
     margin: 0;
   }
 
   .grid_1-1 {
-    margin-left: 2rem;
+    margin-left: 1rem;
   }
 
   .grid_1-1 p {
@@ -137,6 +145,7 @@ import Layout from "../layouts/Layout.astro";
     justify-content: flex-end; /* pushes image to the right */
     padding-top: 3rem;
     padding-bottom: 3rem;
+    margin-left: 2rem;
   }
 
   .image_container img {
@@ -147,13 +156,18 @@ import Layout from "../layouts/Layout.astro";
   /* KONTAKT FORMULAR */
 
   .text_col {
-    padding-left: 2rem; /* giver teksten luft */
+    padding-left: 1rem; /* giver teksten luft */
     padding-right: 2rem;
+    padding-bottom: 2rem;
   }
 
   .form_col {
     margin: 0;
     padding: 0;
+  }
+
+  .form_grid {
+    padding-bottom: 4rem;
   }
 
   .kontakt-formular {
@@ -168,28 +182,94 @@ import Layout from "../layouts/Layout.astro";
   .kontakt-formular input,
   .kontakt-formular textarea {
     font-family: "Futura", sans-serif;
+    font-weight: 500;
     border: none;
     border-bottom: 2px solid black;
-    font-size: 1rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     padding: 0.5rem 0;
     background: transparent;
     color: #000;
-    padding-left: 2rem;
+    padding-left: 1rem;
   }
 
   .kontakt-formular button {
+    font-family: "Futura", sans-serif;
+    font-weight: 500;
     position: absolute;
     right: 0;
     bottom: -2.5rem;
     background: none;
     border: none;
-    font-size: 1.2rem;
+    font-size: clamp(1.5rem, 3vw, 3rem);
     font-weight: bold;
     cursor: pointer;
+    color: black;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover-effekt på send knappen*/
+  .kontakt-formular button:hover {
+    color: var(--bg);
+    -webkit-text-stroke: 1px black;
   }
 
   .form_col {
-    border-right: 2px solid black;
+    /* tilføjer en streg */
+    /* border-right: 2px solid black; */
     padding-right: 3rem;
+  }
+
+  /************* MEDIA QUERIES *************/
+
+  @media screen and (min-width: 850px) {
+    .bg_lamps {
+      background-position: top -70px right 10px;
+      background-size: 60%;
+    }
+
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-left: 2rem;
+    }
+    .kontakt_hero {
+      padding-left: 2rem;
+    }
+    .event_tekst {
+      margin-top: 10rem;
+    }
+    .text_col {
+      padding-left: 2rem; /* giver teksten luft */
+      padding-top: 5rem;
+    }
+
+    .form_grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-bottom: 8rem;
+    }
+
+    .form_col {
+      order: -1;
+    }
+
+    .image_container {
+      margin-left: 0;
+    }
+
+    .kontakt-formular button {
+      bottom: -4rem;
+    }
+    .kontakt-formular input,
+    .kontakt-formular textarea {
+      font-family: "Futura", sans-serif;
+      font-weight: 500;
+      border: none;
+      border-bottom: 2px solid black;
+      padding: 2rem 0;
+      background: transparent;
+      color: #000;
+      padding-left: 2rem;
+    }
   }
 </style>
