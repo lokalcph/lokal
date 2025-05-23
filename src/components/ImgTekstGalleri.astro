@@ -1,0 +1,54 @@
+---
+// Henter de tre egenskaber (props) der sendes ind til komponenten
+// 'src' = stien til billedet
+// 'alt' = alternativ tekst til billedet (for skærmlæsere og SEO)
+// 'title' = teksten der vises ovenpå billedet
+const { src, alt, title } = Astro.props;
+---
+
+<!-- HOVEDCONTAINEREN --><!-- Position: relative gør det muligt at placere teksten (image-title) absolut i forhold til denne wrapper. -->
+<div class="image-wrapper">
+  <!-- TITLEN PÅ BILLEDET -->
+  <!-- giver klassen image-title som bruger absolut positionering-->
+  <span class="image-title">{title}</span>
+  <!-- BILLEDET -->
+  <!--   src og alt kommer fra de props der sendes til komponenten.-->
+  <img src={src} alt={alt} />
+</div>
+
+<!-- STYLE TIL BILLEDE OG TEKST -->
+<style>
+  /* 
+  Gør wrapperen til et positioneringsgrundlag for den absolut placerede titel.
+  Sørger også for at den fylder hele feltet hvor den bruges.
+  */
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  /* 
+  Titeltekst placeret øverst til venstre med padding.
+  */
+  .image-title {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-family: "Futura", sans-serif;
+    color: black;
+    z-index: 10;
+    border-radius: 4px;
+  }
+  /* 
+  Sørger for at billedet fylder hele sin container og ikke forvrænges.
+  object-fit: cover beskærer billedet hvis det ikke passer i størrelsesforholdet.
+  */
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+</style>
