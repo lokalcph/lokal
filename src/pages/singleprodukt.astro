@@ -24,7 +24,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="line"></div>
           <p>find den på boulevarden 79</p>
           <a class="back_cta" href="galleri.astro">
-            <img src="/src/assets/logo.svg" alt="" class="arrow_icon" />
+            <img src="/src/assets/pil.svg" alt="" class="arrow_icon" />
             tilbage
           </a>
           <div class="line"></div>
@@ -97,9 +97,9 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .arrow_icon {
-    width: 1rem;
-    height: 1rem;
-    margin-right: 0.3rem;
+    width: clamp(1.4rem, 2vw, 1.6rem);
+    height: clamp(1.4rem, 2vw, 1.6rem);
+    margin-right: 0.15rem;
     transform: scaleX(-1); /* spejlvender pilen så den peger den rigtige vej */
   }
 
@@ -110,12 +110,17 @@ import Layout from "../layouts/Layout.astro";
     transition: all 0.2s ease-in-out;
   }
 
-  .back_cta:hover,
-  .arrow_icon:hover {
-    color: transparent;
-    -webkit-text-stroke: 0.6px black; /* Sort outline */
-    text-stroke: 0.6px black; /* Til Firefox (eksperimentel) */
+  .back_cta:hover {
+    color: var(--bg);
+    -webkit-text-stroke: 0.5px var(--black); /* Sort outline */
+    text-stroke: 0.5px var(--black); /* Til Firefox (eksperimentel) */
     scale: 1.025;
+  }
+
+  .arrow_icon:hover {
+    scale: 1.025;
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
   }
 
   /* desktop layout */
