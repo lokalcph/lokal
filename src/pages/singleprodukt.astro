@@ -7,34 +7,44 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
   <Header />
   <main>
-    <section class="hero">
-      <img
-        class="product_img"
-        src="src/assets/rispapirslampe_single.webp"
-        alt="en unika japansk rispapirslampe"
-      />
-    </section>
-    <section class="product_info">
-      <div class="info_text">
-        <h2 class="product_name">rispapir</h2>
-        <div class="line"></div>
-        <p>unika rispapirslampe fremstillet i japan</p>
-        <p>1200,-</p>
-        <div class="line"></div>
-        <p>find den på boulevarden 79</p>
-        <a class="back_cta" href="galleri.astro">tilbage</a>
-        <div class="line"></div>
-      </div>
-    </section>
+    <div class="product_wrapper">
+      <section class="hero">
+        <img
+          class="product_img"
+          src="src/assets/rispapirslampe_single.webp"
+          alt="en unika japansk rispapirslampe"
+        />
+      </section>
+      <section class="product_info">
+        <div class="info_text">
+          <h2 class="product_name">rispapir</h2>
+          <div class="line"></div>
+          <p>unika rispapirslampe fremstillet i japan</p>
+          <p>1200,-</p>
+          <div class="line"></div>
+          <p>find den på boulevarden 79</p>
+          <a class="back_cta" href="galleri.astro">
+            <img src="/src/assets/logo.svg" alt="" class="arrow_icon" />
+            tilbage
+          </a>
+          <div class="line"></div>
+        </div>
+      </section>
+    </div>
   </main>
   <!-- <Footer /> -->
 </Layout>
 
 <style>
+  /* wrapper til mobile */
+  .product_wrapper {
+    display: block;
+    padding-bottom: 10vh;
+  }
   .product_img {
     width: 100%;
     max-width: 100%;
-    height: auto;
+    height: 600px;
     object-fit: cover;
   }
 
@@ -62,7 +72,7 @@ import Layout from "../layouts/Layout.astro";
     font-family: "Futura", sans-serif;
     font-weight: 500;
     color: var(--black);
-    font-size: 5.5rem;
+    font-size: clamp(4.5rem, 8vw, 7rem);
     line-height: 1;
     margin: 0;
     padding: 0.3rem 0.5rem;
@@ -72,7 +82,7 @@ import Layout from "../layouts/Layout.astro";
   p {
     font-family: "Futura", sans-serif;
     color: var(--black);
-    font-size: 0.9375rem;
+    font-size: clamp(0.975rem, 2vw, 1.2rem);
     line-height: 1.2;
     margin: 0;
     padding-right: 0.5rem;
@@ -81,14 +91,60 @@ import Layout from "../layouts/Layout.astro";
   a {
     font-family: "Futura", sans-serif;
     color: var(--black);
-    font-size: 0.9375rem;
+    font-size: clamp(0.975rem, 2vw, 1.2rem);
     text-decoration: none;
     padding-right: 0.5rem;
   }
 
-  .back_cta:hover {
-    text-decoration: underline;
-    color: var(--accent);
-    background-color: yellow;
+  .arrow_icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.3rem;
+    transform: scaleX(-1); /* spejlvender pilen så den peger den rigtige vej */
+  }
+
+  .back_cta {
+    display: inline-flex;
+    justify-content: right;
+    /* gap: 0.5rem; - hvis vi vil have lidt mellemrum mellem pil og skrift */
+    transition: all 0.2s ease-in-out;
+  }
+
+  .back_cta:hover,
+  .arrow_icon:hover {
+    color: transparent;
+    -webkit-text-stroke: 0.6px black; /* Sort outline */
+    text-stroke: 0.6px black; /* Til Firefox (eksperimentel) */
+    scale: 1.025;
+  }
+
+  /* desktop layout */
+  @media screen and (min-width: 800px) {
+    .product_wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* to kolonner i desktop version i stedet for en */
+      align-items: start;
+      padding-bottom: 5vh; /* padding inden footer */
+      /* padding-top: 25vh; mere luft på desktop */
+      /* fjern dette hvis vi vælger at fjerne luften i toppen */
+    }
+
+    .product_img {
+      width: 100%;
+      max-width: 100%;
+      height: 850px;
+      object-fit: cover;
+    }
+
+    .info_text {
+      padding-top: 30vh;
+      /* mere luft placeret i midten af grid'et */
+    }
+
+    h2,
+    p,
+    a {
+      padding-right: 0.9rem;
+    }
   }
 </style>
