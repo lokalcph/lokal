@@ -21,11 +21,17 @@
 
   <!-- Mobil overlay-menu -->
   <div class="mobile-menu">
-    <p>lokal</p>
+    <div class="line_divider"></div>
+    <p>menu</p>
+    <div class="line_divider_menu"></div>
     <a href="/menu">se menu</a>
+    <div class="line_divider"></div>
     <a href="/galleri">galleri</a>
+    <div class="line_divider"></div>
     <a href="/kontakt">kontakt</a>
+    <div class="line_divider"></div>
   </div>
+  <script src="/javascript/burger.js" defer></script>
 </header>
 
 <style>
@@ -41,15 +47,35 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 60px;
+    padding-top: 5px;
+    width: 50px;
     align-items: left;
     cursor: pointer;
+    z-index: 105; /* Højt z-index for at sikre den er over andre elementer */
+  }
+
+  .burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    transition: 0.2s linear;
+    z-index: 105; /* Højt z-index for at sikre den er over andre elementer */
+  }
+
+  .burger.active .line:nth-child(2) {
+    opacity: 0;
+    transition: 0.15s linear;
+  }
+
+  .burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -10px);
+    transition: 0.2s linear;
+    z-index: 105; /* Højt z-index for at sikre den er over andre elementer */
   }
 
   .burger .line {
-    height: 1px;
+    height: 1.5px;
     background-color: var(--black);
     width: 100%;
+    z-index: 105; /* Højt z-index for at sikre den er over andre elementer */
   }
 
   .burger .short {
@@ -58,28 +84,71 @@
   }
 
   /* Mobilmenu */
+  /* Mobile-menu som fullscreen overlay, start udenfor viewport */
   .mobile-menu {
-    display: none;
-    top: 60px;
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 100%;
-    background: var(--bg);
-    text-align: right;
-    padding: 2rem 1rem;
+    width: 100vw;
+    height: 100vh;
+    background: var(--accent); /* Rød baggrund som ønsket */
+    display: flex;
     flex-direction: column;
-    gap: 1rem;
-    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    /* Start "skjult" med transform og opacity */
+    transform: translateY(-100%);
+    opacity: 0;
+
+    /* Transitions */
+    transition:
+      transform 0.8s ease-in-out,
+      opacity 0.8s ease-in-out;
+    z-index: 100; /* højt z-index så det ligger over alt */
   }
 
+  /* Når menuen er aktiv glider den ned og bliver synlig */
+  .mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    display: flex; /* Sikrer den er flex når aktiv */
+  }
+
+  .mobile-menu .line_divider,
+  .mobile-menu .line_divider_menu {
+    height: 1px;
+    background-color: var(--bg);
+    width: 100%;
+  }
+
+  .mobile-menu .line_divider_menu {
+    margin-top: 5.5rem;
+  }
+
+  /* Tekstfarve i menuen */
   .mobile-menu a,
   .mobile-menu p {
-    font-size: 1.2rem;
-    color: var(--black);
+    font-size: 1.5rem;
+    color: var(--bg); /* Hvid tekst på rød baggrund */
     text-decoration: none;
+    cursor: pointer;
   }
 
+  .mobile-menu p {
+    font-size: 2rem;
+  }
   .mobile-menu a:hover {
-    color: var(--accent);
+    color: var(--bg);
+    -webkit-text-stroke: 0.9px var(--black); /* Sort outline */
+    text-stroke: 0.9px var(--black); /* Til Firefox (eksperimentel) */
+    scale: 1.2;
+  }
+
+  /* gør mobile menu aktiv */
+  .mobile-menu.active {
+    display: flex;
   }
 
   /* Desktop skjult by default */
