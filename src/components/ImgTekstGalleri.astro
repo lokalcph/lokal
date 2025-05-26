@@ -51,4 +51,9 @@ const { src, alt, title } = Astro.props;
     object-fit: cover;
     display: block;
   }
+  @media (min-width: 800px) {
+    .image-title {
+      font-size: 1rem; /* Større tekst på større skærme */
+    }
+  }
 </style>
