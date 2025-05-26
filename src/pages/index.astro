@@ -414,15 +414,22 @@ import Layout from "../layouts/Layout.astro";
   /* Hover-effekt på galleri tekst */
   .galleri_tekst:hover {
     color: var(--bg);
-    -webkit-text-stroke: 1px var(--accent);
+    -webkit-text-stroke: 1px var(--black);
   }
   /* fjerne underline på galleri hover */
   .empty a:hover {
     text-decoration: none;
   }
 
-  .empty {
+  .empty_galleri {
     text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .empty_galleri h2 {
+    font-size: clamp(5rem, 10vw, 10rem);
   }
 
   .item {
