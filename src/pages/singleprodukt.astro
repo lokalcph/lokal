@@ -108,6 +108,7 @@ import Layout from "../layouts/Layout.astro";
     justify-content: right;
     /* gap: 0.5rem; - hvis vi vil have lidt mellemrum mellem pil og skrift */
     transition: all 0.2s ease-in-out;
+    z-index: 0;
   }
 
   .back_cta:hover {
@@ -121,6 +122,11 @@ import Layout from "../layouts/Layout.astro";
     scale: 1.025;
     opacity: 0.5;
     transition: all 0.2s ease-in-out;
+  }
+
+  .back_cta.menu-open,
+  .arrow_icon.menu-open {
+    display: none;
   }
 
   /* desktop layout */
