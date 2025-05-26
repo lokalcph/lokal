@@ -22,7 +22,7 @@
   <!-- Mobil overlay-menu -->
   <div class="mobile-menu">
     <div class="line_divider"></div>
-    <p class="menu_tekst">menu</p>
+    <a class="menu_tekst" href="/">forside</a>
     <div class="line_divider_menu"></div>
     <a href="/menu">se menu</a>
     <div class="line_divider"></div>
@@ -132,7 +132,7 @@
   }
 
   .mobile-menu .line_divider_menu {
-    margin-top: -9.5rem;
+    margin-top: -1.5rem;
   }
 
   /* Tekstfarve i menuen */
@@ -143,17 +143,21 @@
     cursor: pointer;
   }
 
-  .mobile-menu p {
-    font-size: 7.6rem;
+  .mobile-menu a.menu_tekst {
+    font-size: 6.6rem;
     font-weight: 700;
     color: var(--bg);
     text-decoration: none;
+    margin-top: -0.5rem;
     cursor: pointer;
-    margin-top: -1.5rem;
   }
   .mobile-menu a:hover {
     color: var(--bg);
     scale: 1.2;
+  }
+
+  .mobile-menu a.menu_tekst:hover {
+    scale: 1.08;
   }
 
   /* gør mobile menu aktiv */
