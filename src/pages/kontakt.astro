@@ -184,7 +184,7 @@ import Scroll_galleri from "../components/scroll.astro";
     font-family: "Futura", sans-serif;
     font-weight: 500;
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--accent);
     font-size: clamp(1rem, 2vw, 1.2rem);
     padding: 0.5rem 0;
     background: transparent;
@@ -203,14 +203,14 @@ import Scroll_galleri from "../components/scroll.astro";
     font-size: clamp(1.5rem, 3vw, 3rem);
     font-weight: bold;
     cursor: pointer;
-    color: black;
+    color: var(--accent);
     transition: all 0.3s ease;
   }
 
   /* Hover-effekt på send knappen*/
   .kontakt-formular button:hover {
     color: var(--bg);
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 0.5px var(--accent);
   }
 
   .form_col {
@@ -265,10 +265,10 @@ import Scroll_galleri from "../components/scroll.astro";
       font-family: "Futura", sans-serif;
       font-weight: 500;
       border: none;
-      border-bottom: 2px solid black;
+      border-bottom: 2px solid var(--accent);
       padding: 2rem 0;
       background: transparent;
-      color: #000;
+      color: var(--black);
       padding-left: 2rem;
     }
   }
