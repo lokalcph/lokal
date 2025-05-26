@@ -22,7 +22,7 @@
   <!-- Mobil overlay-menu -->
   <div class="mobile-menu">
     <div class="line_divider"></div>
-    <p>menu</p>
+    <p class="menu_tekst">menu</p>
     <div class="line_divider_menu"></div>
     <a href="/menu">se menu</a>
     <div class="line_divider"></div>
@@ -51,12 +51,13 @@
     width: 50px;
     align-items: left;
     cursor: pointer;
-    z-index: 105; /* Højt z-index for at sikre den er over andre elementer */
+    z-index: 150; /* Højt z-index for at sikre den er over andre elementer */
   }
 
   .burger.active .line:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
     transition: 0.2s linear;
+    background-color: var(--bg);
     z-index: 105; /* Højt z-index for at sikre den er over andre elementer */
   }
 
@@ -75,7 +76,14 @@
     height: 1.5px;
     background-color: var(--black);
     width: 100%;
-    z-index: 105; /* Højt z-index for at sikre den er over andre elementer */
+    z-index: 150; /* Højt z-index for at sikre den er over andre elementer */
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  /* Aktiv – styr både rotation OG farveskift her */
+  .burger.active .line:nth-child(1),
+  .burger.active .line:nth-child(3) {
+    background-color: var(--bg) !important;
   }
 
   .burger .short {
@@ -104,7 +112,7 @@
 
     /* Transitions */
     transition:
-      transform 0.8s ease-in-out,
+      transform 0.9s ease-in-out,
       opacity 0.8s ease-in-out;
     z-index: 100; /* højt z-index så det ligger over alt */
   }
@@ -124,12 +132,11 @@
   }
 
   .mobile-menu .line_divider_menu {
-    margin-top: 5.5rem;
+    margin-top: -9.5rem;
   }
 
   /* Tekstfarve i menuen */
-  .mobile-menu a,
-  .mobile-menu p {
+  .mobile-menu a {
     font-size: 1.5rem;
     color: var(--bg); /* Hvid tekst på rød baggrund */
     text-decoration: none;
@@ -137,12 +144,15 @@
   }
 
   .mobile-menu p {
-    font-size: 2rem;
+    font-size: 7.6rem;
+    font-weight: 700;
+    color: var(--bg);
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: -1.5rem;
   }
   .mobile-menu a:hover {
     color: var(--bg);
-    -webkit-text-stroke: 0.9px var(--black); /* Sort outline */
-    text-stroke: 0.9px var(--black); /* Til Firefox (eksperimentel) */
     scale: 1.2;
   }
 
