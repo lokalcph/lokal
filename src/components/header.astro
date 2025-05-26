@@ -34,6 +34,7 @@
   <script src="/javascript/burger.js" defer></script>
 </header>
 
+<!-- Style menuen -->
 <style>
   header {
     font-family: "Futura", sans-serif;
@@ -54,8 +55,9 @@
     z-index: 150; /* Højt z-index for at sikre den er over andre elementer */
   }
 
+  /* style burger stregerne når den bliver aktiv */
   .burger.active .line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(5px, 5px); /* strejerne roterer når aktiv */
     transition: 0.2s linear;
     background-color: var(--bg);
     z-index: 105; /* Højt z-index for at sikre den er over andre elementer */
@@ -72,6 +74,7 @@
     z-index: 105; /* Højt z-index for at sikre den er over andre elementer */
   }
 
+  /* burger linjer i ikke aktiv */
   .burger .line {
     height: 1.5px;
     background-color: var(--black);
@@ -80,7 +83,7 @@
     transition: background-color 0.2s ease-in-out;
   }
 
-  /* Aktiv – styr både rotation OG farveskift her */
+  /* Aktiv – styr både rotation og farveskift her */
   .burger.active .line:nth-child(1),
   .burger.active .line:nth-child(3) {
     background-color: var(--bg) !important;
