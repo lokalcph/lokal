@@ -9,7 +9,10 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
   <Header />
   <main>
     <!-- HEERO -->
-    <h1>galleri <span class="unika_lodret">unika</span></h1>
+    <section class="galleri_hero bg_lamper">
+      <span class="galleri_tekst">galleri</span>
+      <span class="unika_tekst">unika</span>
+    </section>
 
     <!-- GALLERI -->
     <div class="grid">
@@ -22,13 +25,12 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         />
       </div>
 
+      <div class="felt2_tekst">
+        her får du et kig ind i vores skiftende udvalg. alle varer er unika og
+        kan kun købes i butikken – kig forbi og oplev det hele selv.
+      </div>
       <div class="felt2">
-        <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-        <ImgTekstGalleri
-          src="/src/assets/mobilimg2.png"
-          alt=""
-          title="Titel 2"
-        />
+        <ImgTekstGalleri src="/src/assets/mobilimg2.png" alt="" />
       </div>
       <div class="felt3">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
@@ -40,6 +42,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       </div>
 
       <!-- SROLLBAR -->
+
       <div class="felt4">
         <span class="scroll-title">Scroll</span>
         <div class="scroll_produkt">
@@ -113,6 +116,16 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         />
       </div>
     </div>
+    <div class="filter_productlist">
+      <label for="filter" class="filter_label">
+        <img src="/src/assets/pil.svg" alt="filter pil" class="filter_icon" />
+        <span class="filter_text">Se gamle produkter</span>
+      </label>
+
+      <select name="filter" id="filter">
+        <option value="all" selected="selected">se gamle produkter</option>
+      </select>
+    </div>
   </main>
 
   <Footer />
@@ -125,21 +138,83 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     main {
       padding-top: 1rem;
     }
-    h1 {
-      color: var(--Red, #a6192e);
-      font-family: "Futura", sans-serif;
-      font-size: 4.5625rem;
-      font-weight: 700;
-      margin-top: 6rem;
+
+    select {
+      appearance: none; /* Fjerner standard-styling */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: transparent;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0; /* Gør select usynlig, men stadig funktionel */
+      cursor: pointer;
     }
-    .unika_lodret {
+
+    .filter_productlist {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+      cursor: pointer;
+      position: relative;
+      margin: 20px;
+    }
+
+    .filter_label {
+      display: flex;
+      align-items: center;
+
+      gap: 5px;
+      cursor: pointer;
+    }
+    .filter_icon {
+      width: 2rem;
+      height: auto;
+      cursor: pointer;
+      aspect-ratio: 1 / 1;
+    }
+    .filter_text {
+      color: var(--black);
+      font-family: "Futura", sans-serif;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .galleri_hero {
+      display: flex;
+      /* så 'os' følger 'kontakt' nederst */
+      align-items: baseline;
+      gap: 0.2rem;
+      margin-bottom: 2rem;
+      padding-top: clamp(8rem, 22vw, 25rem);
+      padding-left: 1rem;
+      position: relative;
+    }
+    .bg_lamper {
+      background-image: url("/src/assets/lamper.png");
+      background-position: top -8px right 1px;
+      background-repeat: no-repeat;
+      background-size: 50%;
+    }
+    .galleri_tekst {
+      font-family: "Futura", sans-serif;
+      color: var(--accent);
+      font-size: 4.56rem;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0;
+    }
+    .unika_tekst {
       font-family: "Gabriela", serif;
       font-size: 1.4rem;
-      color: var(--Red, #a6192e);
-      writing-mode: vertical-rl; /* Skriver teksten lodret */
-      transform: rotate(180deg); /* Roterer teksten */
+      color: var(--accent);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
       margin-bottom: 0.5rem;
-      font-weight: 200;
+      z-index: 1;
     }
 
     .grid {
@@ -161,20 +236,34 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     }
     .felt2 {
       border-right: 1px solid black;
+      grid-row: 2 / span 1; /* placerer feltet i første række */
+      grid-column: 2 / span 1; /* placerer feltet i første kolonne */
+    }
+    .felt2_tekst {
+      font-family: "Futura", sans-serif;
+      font-size: 1rem;
+      padding: 10px;
+      color: var(--black);
+      grid-column: 1 / span 2; /*feltet fylder hele bredden af gridet*/
+      grid-row: 2;
+    }
+    .felt3 {
+      border-top: 1px solid black;
+      grid-column: 1 / -1; /* placerer feltet i første kolonne */
     }
 
     /* FELTET MED SCROLL */
     .felt4 {
       overflow-x: auto; /* gør det muligt at scrolle vandret */
+      grid-row: 4 / span 1; /* placerer feltet i anden række */
+      grid-column: 1 / span 2; /*feltet fylder hele bredden af gridet*/
       display: flex;
-      position: relative; /* gør det muligt at placere teksten (scroll-title) absolut i forhold til denne wrapper */
-      grid-column: 1 / -1; /*feltet fylder hele bredden af gridet*/
     }
 
     /* TITLEN PÅ SCROLLBILLED */
     .scroll-title {
-      position: absolute; /* gør det muligt at placere teksten (scroll-title) absolut i forhold til denne wrapper */
-      top: 8px; /* placerer teksten 8px fra toppen */
+      position: sticky; /* gør det muligt at placere teksten (scroll-title) absolut i forhold til denne wrapper */
+      top: 4px; /* placerer teksten 8px fra toppen */
       left: 8px; /* placerer teksten 8px fra venstre */
       padding: 4px 8px;
       font-size: 0.75rem;
@@ -186,6 +275,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     .scroll_produkt {
       min-width: 40%; /* sikre at man kan se flere billeder på en gang: flere billeder i viewpointen */
       flex-shrink: 0; /* forhindrer at billedet skrumper */
+      margin-bottom: 30px;
     }
     /*række med 2 kolonner: 1 del og 2 dele*/
     .img_grid2 {
@@ -217,6 +307,95 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     .felt9,
     .felt10 {
       border-bottom: 1px solid black;
+    }
+
+    @media (min-width: 800px) {
+      .bg_lamper {
+        background-position: top -90px right 10px;
+        background-size: 45%;
+      }
+      .galleri_hero {
+        padding-left: 2rem;
+      }
+      .galleri_tekst {
+        font-size: 18.75rem;
+      }
+      .unika_tekst {
+        font-size: 5.6rem;
+      }
+      .filter_text {
+        font-size: 2.8rem;
+      }
+      .filter_icon {
+        width: 4rem;
+      }
+      .grid {
+        grid-template-columns: repeat(12, 1fr); /* 3 kolonner i stedet for 2 */
+        grid-auto-rows: 500px;
+        border-top: 1px solid black;
+      }
+
+      .felt1 {
+        grid-column: 7 / span 6;
+        grid-row: 1 / 2;
+        border: none;
+      }
+
+      .felt2 {
+        grid-column: 3 / span 4;
+        grid-row: 1 / 2;
+        border-bottom: none;
+      }
+      .felt2_tekst {
+        grid-column: 1 / span 6;
+        grid-row: 1 / 2;
+        font-family: "Futura", sans-serif;
+        font-size: 1.49rem;
+        padding: 20px;
+        color: var(--black);
+      }
+
+      .felt3 {
+        grid-column: 1 / span 4;
+        grid-row: 2;
+        border-right: solid 1px black;
+        border-top: 1px solid black;
+      }
+      .img_grid2 {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 500px;
+        grid-column: 5 / span 8; /* feltet fylder hele bredden af gridet */
+        grid-row: 2;
+        border-top: 1px solid black;
+      }
+      .scroll_produkt img {
+        width: 90%;
+        height: 90%;
+      }
+      .scroll_produkt {
+        min-width: 25%;
+      } /*sikre */
+
+      .felt4 {
+        align-items: center;
+        min-width: 10%;
+      }
+      .felt7 {
+        grid-column: 1 / span 3;
+        grid-row: 4;
+      }
+      .felt8 {
+        grid-column: 4 / span 3;
+        grid-row: 4;
+      }
+      .felt9 {
+        grid-column: 7 / span 3;
+        grid-row: 4;
+      }
+      .felt10 {
+        grid-column: 10 / span 3;
+        grid-row: 4;
+      }
     }
   </style>
 </Layout>
