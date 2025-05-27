@@ -20,7 +20,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
           src="/src/assets/lokal_kontakt.webp"
-          alt=""
+          alt="billede af lokals lokale"
           title="Titel 1"
         />
       </div>
@@ -31,14 +31,14 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       </div>
       <div class="felt2">
         <ImgTekstGalleri
-          src="../src/assets/galleri3.webp"
+          src="/src/assets/galleri3.webp"
           alt="grøn-blå vase i keramik"
         />
       </div>
       <div class="felt3">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="../src/assets/galleri2.webp"
+          src="/src/assets/galleri2.webp"
           alt="lys-grøn vase i keramik"
           title="Titel 3"
         />
@@ -50,31 +50,31 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         <span class="scroll-title">Scroll</span>
         <div class="scroll_produkt">
           <img
-            src="../src/assets/galleri8.webp"
+            src="/src/assets/galleri8.webp"
             alt="brun keramik kop fremstillet i japan"
           />
         </div>
         <div class="scroll_produkt">
           <img
-            src="../src/assets/galleri8.webp"
+            src="/src/assets/galleri8.webp"
             alt="brun keramik kop fremstillet i japan"
           />
         </div>
         <div class="scroll_produkt">
           <img
-            src="../src/assets/galleri8.webp"
+            src="/src/assets/galleri8.webp"
             alt="brun keramik kop fremstillet i japan"
           />
         </div>
         <div class="scroll_produkt">
           <img
-            src="../src/assets/galleri8.webp"
+            src="/src/assets/galleri8.webp"
             alt="brun keramik kop fremstillet i japan"
           />
         </div>
         <div class="scroll_produkt">
           <img
-            src="../src/assets/galleri8.webp"
+            src="/src/assets/galleri8.webp"
             alt="brun keramik kop fremstillet i japan"
           />
         </div>
@@ -85,7 +85,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         <div class="felt5">
           <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
           <ImgTekstGalleri
-            src="../src/assets/grid3.webp"
+            src="/src/assets/grid3.webp"
             alt=""
             title="Titel 5"
           />
@@ -93,7 +93,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         <div class="felt6">
           <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
           <ImgTekstGalleri
-            src="../src/assets/galleri4.webp"
+            src="/src/assets/galleri4.webp"
             alt="unika rispapirs lampe med rød skitse"
             title="Titel 6"
           />
@@ -103,7 +103,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       <div class="felt7">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="../src/assets/galleri6.webp"
+          src="/src/assets/galleri6.webp"
           alt="en hvid keramik vase med brede riller"
           title="Titel 7"
         />
@@ -111,7 +111,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       <div class="felt8">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="../src/assets/galleri7.webp"
+          src="/src/assets/galleri7.webp"
           alt="to hvide skåle i keramik stablet ovenpå hinanden"
           title="Titel 8"
         />
@@ -120,7 +120,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       <div class="felt9">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="../src/assets/lokal_galleri.webp"
+          src="/src/assets/lokal_galleri.webp"
           alt="kaffe og diverse på et bord på lokal"
           title="Titel 9"
         />
@@ -128,7 +128,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       <div class="felt10">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="../src/assets/galleri5.webp"
+          src="/src/assets/galleri5.webp"
           alt="keramik skulptur af en dame med mønstret tørklæde"
           title="Titel 10"
         />
@@ -212,7 +212,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       padding-left: 1rem;
     }
     .bg_lamper {
-      background-image: url("../assets/kontakt_lamper.webp");
+      background-image: url("/src/assets/kontakt_lamper.webp");
       background-position: top -8px right 1px;
       background-repeat: no-repeat;
       background-size: 70%;
@@ -220,10 +220,11 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     .galleri_tekst {
       font-family: "Futura", sans-serif;
       color: var(--accent);
-      font-size: 4.56rem;
+      font-size: clamp(5.7rem, 20vw, 22rem);
       font-weight: 700;
       line-height: 1;
       margin: 0;
+      padding-top: 3.5rem;
     }
     .unika_tekst {
       font-family: "Gabriela", serif;
@@ -232,6 +233,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       writing-mode: vertical-rl;
       transform: rotate(180deg);
       margin-bottom: 0.5rem;
+      margin-left: -0.5rem;
       z-index: 1;
     }
 
@@ -259,7 +261,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     }
     .felt2_tekst {
       font-family: "Futura", sans-serif;
-      font-size: 1rem;
+      font-size: clamp(0.8rem, 2vw, 1.2rem);
       padding: 10px;
       color: var(--black);
       grid-column: 1 / span 2; /*feltet fylder hele bredden af gridet*/
@@ -280,7 +282,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       background-image: url("../assets/arrow_right.svg");
       background-repeat: no-repeat;
       background-position: right 10px bottom 10px;
-      background-size: clamp(1rem, 5vw, 2.5rem);
+      font-size: clamp(0.8rem, 2vw, 1.2rem);
       border-bottom: solid black 2px;
     }
 

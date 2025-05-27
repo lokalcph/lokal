@@ -27,7 +27,7 @@ import Scroll_galleri from "../components/scroll.astro";
       </div>
       <div class="image_container">
         <img
-          src="src/assets/lokal_kontakt.png"
+          src="/src/assets/lokal_kontakt.png"
           alt="billede af lokals lokale"
         />
       </div>
@@ -99,13 +99,17 @@ import Scroll_galleri from "../components/scroll.astro";
     font-weight: 700;
     line-height: 1;
     margin: 0;
+    padding-top: 3.5rem;
   }
 
   .os_tekst {
     font-family: "Gabriela", serif;
     font-size: clamp(2rem, 8vw, 15rem);
     color: var(--accent);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-left: -0.7rem;
   }
 
   h2 {
