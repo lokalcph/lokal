@@ -8,9 +8,14 @@
 
   <!-- Desktop titel/logo + menu -->
   <div class="desktop-header">
-    <div class="desktop-title">
+    <div class="desktop-title" id="headerLogo">
       <span class="title-text">lokal</span>
-      <img src="src/assets/logo.svg" alt="lokal logo" class="logo-hover" />
+      <img
+        id="headerLogo"
+        src="src/assets/logo.svg"
+        alt="lokal logo"
+        class="logo-hover"
+      />
     </div>
     <nav class="desktop-menu">
       <a href="/menu">se menu</a>
@@ -41,6 +46,7 @@
     margin: 0;
     padding: 1rem;
     position: fixed;
+    z-index: 200;
   }
 
   /* Burger */
