@@ -193,10 +193,6 @@ console.log(data);
   <Footer />
 
   <style>
-    main {
-      padding-top: 1rem;
-    }
-
     select {
       appearance: none; /*Fjerner standard-styling */
       -webkit-appearance: none;
@@ -301,11 +297,12 @@ console.log(data);
     }
     .felt2_tekst {
       font-family: "Futura", sans-serif;
-      font-size: clamp(0.8rem, 2vw, 1.2rem);
+      font-size: clamp(0.8rem, 3.7vw, 1.2rem);
       padding: 10px;
       color: var(--black);
       grid-column: 1 / span 2; /*feltet fylder hele bredden af gridet*/
       grid-row: 2;
+      padding-top: 1rem;
     }
     .felt3 {
       border-top: 2px solid black;
@@ -371,20 +368,6 @@ console.log(data);
       border-bottom: 2px solid black;
     }
 
-    /*giver vandrette sorte linjer*/
-    /* .felt1,
-    .felt2,
-    .felt3,
-    .felt4,
-    .felt5,
-    .felt6,
-    .felt7,
-    .felt8,
-    .felt9,
-    .felt10 {
-      border-bottom: 2px solid black;
-    } */
-
     @media (min-width: 800px) {
       .bg_lamper {
         background-position: top -70px right 10px;
@@ -395,6 +378,7 @@ console.log(data);
       }
       .galleri_tekst {
         font-size: 18.75rem;
+        padding-bottom: 2rem;
       }
       .unika_tekst {
         font-size: 5.6rem;
