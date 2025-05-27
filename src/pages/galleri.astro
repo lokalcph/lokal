@@ -3,6 +3,23 @@ import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
 import Layout from "../layouts/Layout.astro";
 import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
+
+const url =
+  "https://bthhfklfetpicuolnkyp.supabase.co/rest/v1/produkter?select=*";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ0aGhma2xmZXRwaWN1b2xua3lwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NTA5MDMsImV4cCI6MjA2MzIyNjkwM30.oCFLXDzG2ItPy4MqhDi5d5nG3EixOPRD-pLPqPKubC4";
+
+const option = {
+  headers: {
+    apikey: key,
+  },
+};
+
+const data = await fetch(url, option).then((res) => {
+  return res.json();
+});
+
+console.log(data);
 ---
 
 <Layout>
@@ -21,7 +38,6 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         <ImgTekstGalleri
           src="/src/assets/lokal_kontakt.webp"
           alt="billede af lokals lokale"
-          title="Titel 1"
         />
       </div>
 
@@ -29,19 +45,24 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         her får du et kig ind i vores skiftende udvalg. alle varer er unika og
         kan kun købes i butikken – kig forbi og oplev det hele selv.
       </div>
+
       <div class="felt2">
-        <ImgTekstGalleri
-          src="/src/assets/galleri3.webp"
-          alt="grøn-blå vase i keramik"
-        />
+        <a href={`/produkter/${data[0].product_slug}`}>
+          <ImgTekstGalleri
+            src={`/galleri_imgs/${data[0].image}`}
+            alt={data[0].product_name}
+          />
+        </a>
       </div>
       <div class="felt3">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-        <ImgTekstGalleri
-          src="/src/assets/galleri2.webp"
-          alt="lys-grøn vase i keramik"
-          title="Titel 3"
-        />
+        <a href={`/produkter/${data[1].product_slug}`}>
+          <ImgTekstGalleri
+            src={`/galleri_imgs/${data[1].image}`}
+            alt={data[1].product_name}
+            title={data[1].product_name}
+          />
+        </a>
       </div>
 
       <!-- SROLLBAR -->
@@ -49,34 +70,44 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       <div class="felt4">
         <span class="scroll-title">Scroll</span>
         <div class="scroll_produkt">
-          <img
-            src="/src/assets/galleri8.webp"
-            alt="brun keramik kop fremstillet i japan"
-          />
+          <a href={`/produkter/${data[2].product_slug}`}>
+            <img
+              src={`/galleri_imgs/${data[2].image}`}
+              alt={data[2].product_name}
+            />
+          </a>
         </div>
         <div class="scroll_produkt">
-          <img
-            src="/src/assets/galleri8.webp"
-            alt="brun keramik kop fremstillet i japan"
-          />
+          <a href={`/produkter/${data[2].product_slug}`}>
+            <img
+              src={`/galleri_imgs/${data[2].image}`}
+              alt={data[2].product_name}
+            />
+          </a>
         </div>
         <div class="scroll_produkt">
-          <img
-            src="/src/assets/galleri8.webp"
-            alt="brun keramik kop fremstillet i japan"
-          />
+          <a href={`/produkter/${data[2].product_slug}`}>
+            <img
+              src={`/galleri_imgs/${data[2].image}`}
+              alt={data[2].product_name}
+            />
+          </a>
         </div>
         <div class="scroll_produkt">
-          <img
-            src="/src/assets/galleri8.webp"
-            alt="brun keramik kop fremstillet i japan"
-          />
+          <a href={`/produkter/${data[2].product_slug}`}>
+            <img
+              src={`/galleri_imgs/${data[2].image}`}
+              alt={data[2].product_name}
+            />
+          </a>
         </div>
         <div class="scroll_produkt">
-          <img
-            src="/src/assets/galleri8.webp"
-            alt="brun keramik kop fremstillet i japan"
-          />
+          <a href={`/produkter/${data[2].product_slug}`}>
+            <img
+              src={`/galleri_imgs/${data[2].image}`}
+              alt={data[2].product_name}
+            />
+          </a>
         </div>
       </div>
 
@@ -84,37 +115,45 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       <div class="img_grid2">
         <div class="felt5">
           <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-          <ImgTekstGalleri
-            src="/src/assets/grid3.webp"
-            alt=""
-            title="Titel 5"
-          />
+          <a href={`/produkter/${data[3].product_slug}`}>
+            <ImgTekstGalleri
+              src={`/galleri_imgs/${data[3].image}`}
+              alt={data[3].product_name}
+              title={data[3].product_name}
+            />
+          </a>
         </div>
         <div class="felt6">
           <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-          <ImgTekstGalleri
-            src="/src/assets/galleri4.webp"
-            alt="unika rispapirs lampe med rød skitse"
-            title="Titel 6"
-          />
+          <a href={`/produkter/${data[4].product_slug}`}>
+            <ImgTekstGalleri
+              src={`/galleri_imgs/${data[4].image}`}
+              alt={data[4].product_name}
+              title={data[4].product_name}
+            />
+          </a>
         </div>
       </div>
 
       <div class="felt7">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-        <ImgTekstGalleri
-          src="/src/assets/galleri6.webp"
-          alt="en hvid keramik vase med brede riller"
-          title="Titel 7"
-        />
+        <a href={`/produkter/${data[5].product_slug}`}>
+          <ImgTekstGalleri
+            src={`/galleri_imgs/${data[5].image}`}
+            alt={data[5].product_name}
+            title={data[5].product_name}
+          />
+        </a>
       </div>
       <div class="felt8">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-        <ImgTekstGalleri
-          src="/src/assets/galleri7.webp"
-          alt="to hvide skåle i keramik stablet ovenpå hinanden"
-          title="Titel 8"
-        />
+        <a href={`/produkter/${data[6].product_slug}`}>
+          <ImgTekstGalleri
+            src={`/galleri_imgs/${data[6].image}`}
+            alt={data[6].product_name}
+            title={data[6].product_name}
+          />
+        </a>
       </div>
 
       <div class="felt9">
@@ -122,16 +161,17 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         <ImgTekstGalleri
           src="/src/assets/lokal_galleri.webp"
           alt="kaffe og diverse på et bord på lokal"
-          title="Titel 9"
         />
       </div>
       <div class="felt10">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-        <ImgTekstGalleri
-          src="/src/assets/galleri5.webp"
-          alt="keramik skulptur af en dame med mønstret tørklæde"
-          title="Titel 10"
-        />
+        <a href={`/produkter/${data[7].product_slug}`}>
+          <ImgTekstGalleri
+            src={`/galleri_imgs/${data[7].image}`}
+            alt={data[7].product_name}
+            title={data[7].product_name}
+          />
+        </a>
       </div>
     </div>
     <div class="filter_productlist">
@@ -279,9 +319,10 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       grid-row: 4 / span 1; /* placerer feltet i anden række */
       grid-column: 1 / span 2; /*feltet fylder hele bredden af gridet*/
       display: flex;
-      background-image: url("../assets/arrow_right.svg");
+      background-image: url("/src/assets/arrow_right.svg");
       background-repeat: no-repeat;
       background-position: right 10px bottom 10px;
+      background-size: clamp(2rem, 2vw, 3rem);
       font-size: clamp(0.8rem, 2vw, 1.2rem);
       border-bottom: solid black 2px;
     }
