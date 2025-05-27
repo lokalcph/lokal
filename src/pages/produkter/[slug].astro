@@ -1,29 +1,74 @@
 ---
-import Header from "../components/header.astro";
-import Footer from "../components/footer.astro";
-import Layout from "../layouts/Layout.astro";
+import Header from "../../components/header.astro";
+import Footer from "../../components/footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../style/style.css"; // korrekt import af CSS
+
+//@ts-ignore
+// Denne funktion henter data fra en ekstern API og genererer statiske sider for hvert produkt
+// Denne funktion skal eksporteres for at Astro kan bruge den til at generere statiske sider
+// getStaticPaths bruges til at generere statiske sider baseret på data fra en API
+// Den henter alle produkter fra en Supabase database og returnerer en liste af stier
+// til hvert produkt baseret på deres slug
+
+const { produkt }: { produkt: Produkt } = Astro.props;
+
+type Produkt = {
+  product_slug: string;
+  product_name: string;
+  description: string;
+  image: string;
+  price: number;
+};
+
+export async function getStaticPaths() {
+  const url =
+    //   endpoint
+    "https://bthhfklfetpicuolnkyp.supabase.co/rest/v1/produkter?select=*";
+
+  // nøgle, der gør at jeg kan hente tabellen
+  const key =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ0aGhma2xmZXRwaWN1b2xua3lwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NTA5MDMsImV4cCI6MjA2MzIyNjkwM30.oCFLXDzG2ItPy4MqhDi5d5nG3EixOPRD-pLPqPKubC4";
+
+  const option = {
+    headers: {
+      apikey: key,
+    },
+  };
+
+  const data = await fetch(url, option).then((res) => res.json());
+
+  console.log(data);
+
+  return data.map((produkt) => {
+    return {
+      params: { slug: produkt.product_slug },
+      props: { produkt },
+    };
+  });
+}
 ---
 
-<Layout>
+<Layout title={produkt.product_name}>
   <Header />
   <main>
     <div class="product_wrapper">
       <section class="hero">
         <img
           class="product_img"
-          src="src/assets/rispapirslampe_single.webp"
-          alt="en unika japansk rispapirslampe"
+          src={`/galleri_img/${produkt.image}`}
+          alt={produkt.description}
         />
       </section>
       <section class="product_info">
         <div class="info_text">
-          <h2 class="product_name">rispapir</h2>
+          <h2 class="product_name">{produkt.product_name}</h2>
           <div class="line"></div>
-          <p>unika rispapirslampe fremstillet i japan</p>
-          <p>1200,-</p>
+          <p>{produkt.description}</p>
+          <p>{produkt.price},-</p>
           <div class="line"></div>
           <p>find den på boulevarden 79</p>
-          <a class="back_cta" href="galleri.astro">
+          <a class="back_cta" href="/galleri">
             <img src="/src/assets/pil.svg" alt="" class="arrow_icon" />
             tilbage
           </a>
@@ -138,8 +183,6 @@ import Layout from "../layouts/Layout.astro";
       grid-template-columns: 1fr 1fr; /* to kolonner i desktop version i stedet for en */
       align-items: start;
       padding-bottom: 5vh; /* padding inden footer */
-      /* padding-top: 25vh; mere luft på desktop */
-      /* fjern dette hvis vi vælger at fjerne luften i toppen */
     }
 
     .product_img {
