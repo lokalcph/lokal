@@ -39,10 +39,12 @@
 <style>
   /* Styling af footer baggrundsbillede */
   .footer {
-    background-image: url("/src/assets/footer-bg_result.webp");
+    background-image: url("/src/assets/footer-bg-mobile.webp");
     background-repeat: no-repeat;
-
-    height: auto;
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Fuld højde for mobil */
+    width: 100%;
     margin-top: 7vh;
   }
 
@@ -51,14 +53,14 @@
     display: grid;
     grid-template-columns: 3fr 1fr; /* 3/1 fordeling mellem h1 og kontakt */
     align-items: center; /* så de står nede i bunden fx */
-    padding-top: 2rem;
+    padding-top: 19rem;
   }
 
   /* Styling tekst */
   h1 {
     font-family: "Futura", sans-serif;
     color: var(--bg);
-    font-size: clamp(5.5rem, 28vw, 30rem); /* responsivt */
+    font-size: clamp(5rem, 28vw, 28rem); /* responsivt */
     font-weight: 700;
     grid-column: 1;
     line-height: 1;
@@ -70,8 +72,6 @@
     font-weight: 500;
     font-size: clamp(0.8rem, 2vw, 1.1rem); /* responsivt */
     text-align: right;
-    /* grid-column: 3 / 5; /* Dette er korrekt måde at placere i kolonne 2 til 3 (4 eksklusiv) */
-    /* grid-row: 1; Placeres i første række */
     padding-right: 0.8rem; /* Tilføjer lidt afstand til højre */
     padding-top: 0.8rem;
   }
@@ -81,8 +81,6 @@
     font-weight: 500;
     font-size: clamp(0.8rem, 2vw, 1.1rem); /* responsivt */
     text-align: right;
-    grid-column: 3 / 5; /* Dette er korrekt måde at placere i kolonne 2 til 3 (4 eksklusiv) */
-    grid-row: 2; /* Placeres i første række */
     padding-right: 0.8rem; /* Tilføjer lidt afstand til højre */
     padding-top: 6vh;
   }
@@ -112,9 +110,28 @@
     margin: 0 auto;
   }
 
-  @media screen and (min-width: 850px) {
+  @media screen and (min-width: 650px) {
     .kontakt {
-      margin-left: -12rem;
+      margin-right: 20rem;
+    }
+
+    .footer {
+      background-image: url("/src/assets/footer-bg-desktop.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 102vh; /* Fuld højde for desktop */
+      width: 100%;
+      margin-top: 7vh; /* Ingen margin-top for desktop */
+    }
+
+    .grid {
+      padding-top: 6.5rem;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .grid {
+      padding-top: 31rem;
     }
   }
 </style>
