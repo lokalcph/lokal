@@ -39,7 +39,7 @@ export async function getStaticPaths() {
 
   console.log(data);
 
-  return data.map((produkt) => {
+  return data.map((produkt: Produkt) => {
     return {
       params: { slug: produkt.product_slug },
       props: { produkt },
@@ -66,7 +66,7 @@ export async function getStaticPaths() {
           <p>{produkt.description}</p>
           <p>{produkt.price},-</p>
           <div class="line"></div>
-          <p>find den på boulevarden 79</p>
+          <p>find den på sønder boulevard 59</p>
           <a class="back_cta" href="/galleri">
             <img src="/src/assets/pil.svg" alt="" class="arrow_icon" />
             tilbage
