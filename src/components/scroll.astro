@@ -25,10 +25,11 @@ const images = [
 ];
 
 const arrowRight = "/src/assets/arrow_right.svg";
+const { text } = Astro.props;
 ---
 
 <section class="scroll_galleri">
-  <h3>følg os <a href="https://www.instagram.com/lokalcph/">@lokalcph</a></h3>
+  <h3>{text} <a href="https://www.instagram.com/lokalcph/">@lokalcph</a></h3>
 
   <div class="scroll_container" id="scroll_container">
     {
