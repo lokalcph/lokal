@@ -18,11 +18,14 @@ import Layout from "../layouts/Layout.astro";
       >
         <source src="/src/assets/logo.mp4" type="video/mp4" />
       </video>
-      <div class="hero_text">
-        <h1 class="lokal">lokal</h1>
-        <span class="cph">cph</span>
+      <div class="hero_text_wrapper" id="scrollHero">
+        <div class="hero_text">
+          <h1 class="lokal">lokal</h1>
+          <span class="cph">cph</span>
+        </div>
       </div>
     </section>
+
     <section class="info">
       <div class="info_text">
         <h2 class="se_menu">se menu</h2>
@@ -188,18 +191,127 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <Scroll_galleri />
+
+    <script>
+      const scrollHero = document.getElementById("scrollHero");
+      const headerLogo = document.getElementById("headerLogo");
+      const heroLogo = document.querySelector(".hero_logo"); // HERO_LOGO
+
+      if (scrollHero && headerLogo) {
+        let initialRect;
+        let targetRect;
+        let targetProgress = 0;
+        let currentProgress = 0;
+        let animating = false;
+
+        const lerp = (a, b, t) => a + (b - a) * t;
+        const easeInOutQuad = (t) =>
+          t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+        function updateRects() {
+          const initial = scrollHero.getBoundingClientRect();
+          const target = headerLogo.getBoundingClientRect();
+
+          initialRect = {
+            top: initial.top + window.scrollY,
+            left: initial.left + window.scrollX,
+            width: initial.width,
+            height: initial.height,
+          };
+
+          targetRect = {
+            top: target.top + window.scrollY,
+            left: target.left + window.scrollX,
+            width: target.width,
+            height: target.height,
+          };
+        }
+
+        function animate() {
+          currentProgress = lerp(currentProgress, targetProgress, 0.08);
+          const easedProgress = easeInOutQuad(currentProgress);
+
+          const deltaX = targetRect.left - initialRect.left;
+          const deltaY = targetRect.top - initialRect.top;
+          const scale = targetRect.width / initialRect.width;
+
+          const currentX = deltaX * easedProgress;
+          const currentY = deltaY * easedProgress;
+          const currentScale = 1 + (scale - 1) * easedProgress;
+
+          // Transform scrollHero element
+          scrollHero.style.transform = `translate(${currentX}px, ${currentY}px) scale(${currentScale})`;
+
+          // Opacity: scrollHero fader ud senere (mellem 0.8–0.99 progress)
+          const fadeStart = 0.8;
+          const fadeEnd = 0.99;
+
+          let heroOpacity = 1;
+          if (easedProgress < fadeStart) {
+            heroOpacity = 1;
+          } else if (easedProgress > fadeEnd) {
+            heroOpacity = 0;
+          } else {
+            heroOpacity =
+              1 - (easedProgress - fadeStart) / (fadeEnd - fadeStart);
+          }
+
+          // Opacity: header-logo fader ind mellem 0.6–1.0
+          let logoOpacity =
+            easedProgress < 0.6 ? 0 : (easedProgress - 0.6) / 0.4;
+
+          scrollHero.style.opacity = heroOpacity;
+          headerLogo.style.opacity = logoOpacity;
+
+          // ✨ HERO_LOGO: fade + scale out fra start
+          if (heroLogo) {
+            const heroScale = 1 - 0.4 * easedProgress; // scale ned fra 1 → 0.6
+            const heroLogoOpacity = 1 - easedProgress; // fade ud fra 1 → 0
+
+            heroLogo.style.transform = `scale(${heroScale})`;
+            heroLogo.style.opacity = heroLogoOpacity;
+          }
+
+          if (Math.abs(currentProgress - targetProgress) > 0.001) {
+            requestAnimationFrame(animate);
+          } else {
+            animating = false;
+          }
+        }
+
+        function handleScroll() {
+          const maxScroll = 200;
+          targetProgress = Math.min(window.scrollY / maxScroll, 1);
+          if (!animating) {
+            animating = true;
+            animate();
+          }
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", () => {
+          updateRects();
+          handleScroll();
+        });
+        window.addEventListener("load", () => {
+          updateRects();
+          handleScroll();
+        });
+      }
+    </script>
   </main>
   <Footer />
 </Layout>
 
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
   /* HERO */
 
   .hero {
-    background-color: var(--bg);
-    padding: 1rem;
+    z-index: 100;
   }
-
   .hero-layer {
     display: grid;
     place-items: center;
@@ -216,6 +328,12 @@ import Layout from "../layouts/Layout.astro";
     transition: 0.3s ease;
   }
 
+  .hero_logo {
+    transition:
+      transform 0.1s ease,
+      opacity 0.1s ease;
+    transform-origin: center center;
+  }
   .hero_text {
     grid-area: 1 / 1;
     display: flex;
@@ -635,7 +753,12 @@ import Layout from "../layouts/Layout.astro";
 
   @media screen and (min-width: 850px) {
     .hero {
-      padding-left: 2rem;
+      height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
 
     .hero-layer {
@@ -653,6 +776,10 @@ import Layout from "../layouts/Layout.astro";
       margin-top: 3.9rem;
       display: block;
       position: absolute;
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+      transform-origin: center center;
     }
 
     .hero_text {
@@ -667,6 +794,11 @@ import Layout from "../layouts/Layout.astro";
       position: relative;
       margin-left: 0;
       margin-top: 23rem;
+    }
+
+    #scrollHero,
+    #headerLogo {
+      will-change: transform, opacity;
     }
 
     .lokal {
@@ -689,6 +821,24 @@ import Layout from "../layouts/Layout.astro";
       z-index: 1;
     }
 
+    .hero_text_wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      z-index: 100;
+      pointer-events: none;
+      transform-origin: top left;
+      transition: transform 0.3s ease;
+    }
+
+    /* Fader header-logo ind */
+    #headerLogo {
+      transition: opacity 0.3s ease;
+    }
+    #scrollHero {
+      position: fixed;
+    }
     /* INFO */
 
     .info {
