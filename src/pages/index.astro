@@ -11,6 +11,7 @@ import Layout from "../layouts/Layout.astro";
     <section class="hero">
       <video
         class="hero_logo"
+        id="heroLogo"
         autoplay
         muted
         playsinline
@@ -192,88 +193,42 @@ import Layout from "../layouts/Layout.astro";
 
     <Scroll_galleri />
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const scrollHero = document.getElementById("scrollHero");
-        const headerLogo = document.getElementById("headerLogo");
-        const heroLogo = document.querySelector(".hero_logo");
+      window.addEventListener("DOMContentLoaded", () => {
+        const scrollHero = document.getElementById("scrollHero")!;
+        const headerLogo = document.getElementById("headerLogo")!;
+        const heroLogo = document.getElementById("heroLogo");
 
         if (!scrollHero || !headerLogo) return;
 
-        let initialRect, targetRect;
-        let targetProgress = 0;
-        let currentProgress = 0;
-        let animating = false;
+        const maxScroll = 400;
 
-        const lerp = (a, b, t) => a + (b - a) * t;
-        const easeInOutQuad = (t) =>
-          t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        function update() {
+          const scroll = Math.min(window.scrollY, maxScroll);
+          const progress = scroll / maxScroll;
 
-        function updateRects() {
-          const initial = scrollHero.getBoundingClientRect();
-          const target = headerLogo.getBoundingClientRect();
+          const startRect = scrollHero.getBoundingClientRect();
+          const endRect = headerLogo.getBoundingClientRect();
 
-          initialRect = {
-            top: initial.top + window.scrollY,
-            left: initial.left + window.scrollX,
-            width: initial.width,
-            height: initial.height,
-          };
+          const deltaX = endRect.left - startRect.left;
+          const deltaY = endRect.top - startRect.top;
+          const scale = endRect.width / startRect.width;
 
-          targetRect = {
-            top: target.top + window.scrollY,
-            left: target.left + window.scrollX,
-            width: target.width,
-            height: target.height,
-          };
-        }
+          scrollHero.style.transform = `
+        translate(${deltaX * progress}px, ${deltaY * progress}px)
+        scale(${1 + (scale - 1) * progress})
+      `;
 
-        function animate() {
-          currentProgress = lerp(currentProgress, targetProgress, 0.08);
-          const easedProgress = easeInOutQuad(currentProgress);
-
-          const deltaX = targetRect.left - initialRect.left;
-          const deltaY = targetRect.top - initialRect.top;
-          const scale = targetRect.width / initialRect.width;
-
-          scrollHero.style.transform = `translate(${deltaX * easedProgress}px, ${deltaY * easedProgress}px) scale(${1 + (scale - 1) * easedProgress})`;
-
-          // Opacity transitions
-          scrollHero.style.opacity =
-            easedProgress < 0.8 ? 1 : 1 - (easedProgress - 0.8) / 0.19;
-          headerLogo.style.opacity =
-            easedProgress < 0.6 ? 0 : (easedProgress - 0.6) / 0.4;
-
+          // Fade scrollHero ud – men headerLogo er altid synlig
+          // Fade in/out afhængig af scroll
+          scrollHero.style.opacity = `${1 - progress}`;
           if (heroLogo) {
-            heroLogo.style.transform = `scale(${1 - 0.4 * easedProgress})`;
-            heroLogo.style.opacity = 1 - easedProgress;
-          }
-
-          if (Math.abs(currentProgress - targetProgress) > 0.001) {
-            requestAnimationFrame(animate);
-          } else {
-            animating = false;
+            heroLogo.style.opacity = `${1 - progress}`;
           }
         }
 
-        function handleScroll() {
-          const maxScroll = 200;
-          targetProgress = Math.min(window.scrollY / maxScroll, 1);
-          if (!animating) {
-            animating = true;
-            animate();
-          }
-        }
-
-        // Kør ved load og resize
-        window.addEventListener("scroll", handleScroll);
-        window.addEventListener("resize", () => {
-          updateRects();
-          handleScroll();
-        });
-        window.addEventListener("load", () => {
-          updateRects();
-          handleScroll();
-        });
+        window.addEventListener("scroll", update);
+        window.addEventListener("resize", update);
+        update(); // initial
       });
     </script>
 
@@ -725,6 +680,20 @@ import Layout from "../layouts/Layout.astro";
         opacity: 0; /* skjuler det normale billede ved hover */
       }
 
+      #scrollHero,
+      .hero_logo {
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+      }
+      @media (max-width: 600px) {
+        #scrollHero,
+        .hero_logo {
+          transition: none;
+          transform: none !important;
+          opacity: 1 !important;
+        }
+      }
       /************* MEDIA QUERIES *************/
 
       @media screen and (min-width: 850px) {
@@ -752,9 +721,7 @@ import Layout from "../layouts/Layout.astro";
           margin-top: -9.1rem;
           display: block;
           position: absolute;
-          transition:
-            transform 0.3s ease,
-            opacity 0.3s ease;
+          transition: opacity 0.1s ease;
           transform-origin: center center;
         }
 
@@ -812,9 +779,7 @@ import Layout from "../layouts/Layout.astro";
         #headerLogo {
           transition: opacity 0.3s ease;
         }
-        #scrollHero {
-          position: fixed;
-        }
+
         /* INFO */
 
         .info {
