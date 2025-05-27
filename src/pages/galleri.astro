@@ -118,7 +118,11 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     </div>
     <div class="filter_productlist">
       <label for="filter" class="filter_label">
-        <img src="/src/assets/pil.svg" alt="filter pil" class="filter_icon" />
+        <img
+          src="/src/assets/arrow_right.svg"
+          alt="filter pil"
+          class="filter_icon"
+        />
         <span class="filter_text">Se gamle produkter</span>
       </label>
 
@@ -173,7 +177,8 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     }
     .filter_icon {
       width: 2rem;
-      height: auto;
+      height: 2rem;
+      padding-right: 0.3rem;
       cursor: pointer;
       aspect-ratio: 1 / 1;
     }
@@ -231,11 +236,11 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     }
 
     .felt1 {
-      border-top: 1px solid black;
+      border-top: 2px solid black;
       grid-column: 1 / -1; /*feltet fylder hele bredden af gridet*/
+      border-bottom: 2px solid black;
     }
     .felt2 {
-      border-right: 1px solid black;
       grid-row: 2 / span 1; /* placerer feltet i første række */
       grid-column: 2 / span 1; /* placerer feltet i første kolonne */
     }
@@ -248,8 +253,9 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       grid-row: 2;
     }
     .felt3 {
-      border-top: 1px solid black;
+      border-top: 2px solid black;
       grid-column: 1 / -1; /* placerer feltet i første kolonne */
+      border-bottom: 2px solid black;
     }
 
     /* FELTET MED SCROLL */
@@ -258,6 +264,11 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       grid-row: 4 / span 1; /* placerer feltet i anden række */
       grid-column: 1 / span 2; /*feltet fylder hele bredden af gridet*/
       display: flex;
+      background-image: url("/src/assets/arrow_right.svg");
+      background-repeat: no-repeat;
+      background-position: right 10px bottom 10px;
+      background-size: clamp(1rem, 5vw, 2.5rem);
+      border-bottom: solid black 2px;
     }
 
     /* TITLEN PÅ SCROLLBILLED */
@@ -265,7 +276,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       position: sticky; /* gør det muligt at placere teksten (scroll-title) absolut i forhold til denne wrapper */
       top: 4px; /* placerer teksten 8px fra toppen */
       left: 8px; /* placerer teksten 8px fra venstre */
-      padding: 4px 8px;
+      padding: 10px 8px;
       font-size: 0.75rem;
       font-family: "Futura", sans-serif;
       z-index: 20; /* sikrer at teksten er ovenpå billedet */
@@ -285,18 +296,27 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     }
     .felt5 {
       grid-column: 1; /*placerer feltet i den første kolonne*/
-      border-right: 1px solid black;
+      border-right: 2px solid black;
+      border-bottom: 2px solid black;
     }
     .felt6 {
       grid-column: 2; /*placerer feltet i den anden kolonne*/
+      border-bottom: 2px solid black;
     }
 
     .felt9 {
-      border-right: 1px solid black;
+      border-right: 2px solid black;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+    }
+
+    .felt10 {
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
     }
 
     /*giver vandrette sorte linjer*/
-    .felt1,
+    /* .felt1,
     .felt2,
     .felt3,
     .felt4,
@@ -306,8 +326,8 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
     .felt8,
     .felt9,
     .felt10 {
-      border-bottom: 1px solid black;
-    }
+      border-bottom: 2px solid black;
+    } */
 
     @media (min-width: 800px) {
       .bg_lamper {
@@ -328,11 +348,13 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       }
       .filter_icon {
         width: 4rem;
+        height: 4rem;
+        padding-right: 1rem;
       }
       .grid {
         grid-template-columns: repeat(12, 1fr); /* 3 kolonner i stedet for 2 */
         grid-auto-rows: 500px;
-        border-top: 1px solid black;
+        border-top: 2px solid black;
       }
 
       .felt1 {
@@ -345,6 +367,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         grid-column: 3 / span 4;
         grid-row: 1 / 2;
         border-bottom: none;
+        border-right: 2px solid black;
       }
       .felt2_tekst {
         grid-column: 1 / span 6;
@@ -358,15 +381,16 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       .felt3 {
         grid-column: 1 / span 4;
         grid-row: 2;
-        border-right: solid 1px black;
-        border-top: 1px solid black;
+        border-right: solid 2px black;
+        border-top: 2px solid black;
+        border-bottom: none;
       }
       .img_grid2 {
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: 500px;
         grid-column: 5 / span 8; /* feltet fylder hele bredden af gridet */
         grid-row: 2;
-        border-top: 1px solid black;
+        border-top: 2px solid black;
       }
       .scroll_produkt img {
         width: 90%;
@@ -377,24 +401,47 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       } /*sikre */
 
       .felt4 {
+        /* align-items: center; */
+        padding: 0;
+        margin: 0;
         align-items: center;
-        min-width: 10%;
+        overflow-x: auto;
+        grid-column: 1 / -1; /* sikrer den fylder hele bredden af grid */
+        grid-row: 3 / 4;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex; /* gør det til en vandret scroller */
+        background-position: right 20px bottom 20px;
+        border-top: 2px solid black;
       }
+
+      .scroll-title {
+        margin-top: 1rem;
+        align-self: flex-start;
+        font-size: 1rem;
+      }
+
       .felt7 {
         grid-column: 1 / span 3;
         grid-row: 4;
+        border-bottom: 2px solid black;
       }
       .felt8 {
         grid-column: 4 / span 3;
         grid-row: 4;
+        border-bottom: 2px solid black;
       }
       .felt9 {
-        grid-column: 7 / span 3;
-        grid-row: 4;
-      }
-      .felt10 {
         grid-column: 10 / span 3;
         grid-row: 4;
+        border-left: 2px solid black;
+        border-top: none;
+      }
+      .felt10 {
+        grid-column: 7 / span 3;
+        grid-row: 4;
+        border-top: none;
+        border-left: 2px solid black;
       }
     }
   </style>
