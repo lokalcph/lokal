@@ -8,7 +8,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
 <Layout>
   <Header />
   <main>
-    <!-- HEERO -->
+    <!-- HERO -->
     <section class="galleri_hero bg_lamper">
       <span class="galleri_tekst">galleri</span>
       <span class="unika_tekst">unika</span>
@@ -19,7 +19,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       <div class="felt1">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="/src/assets/mobilimg1.jpg"
+          src="/src/assets/lokal_kontakt.webp"
           alt=""
           title="Titel 1"
         />
@@ -30,13 +30,16 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         kan kun købes i butikken – kig forbi og oplev det hele selv.
       </div>
       <div class="felt2">
-        <ImgTekstGalleri src="/src/assets/mobilimg2.png" alt="" />
+        <ImgTekstGalleri
+          src="../src/assets/galleri3.webp"
+          alt="grøn-blå vase i keramik"
+        />
       </div>
       <div class="felt3">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="/src/assets/mobilimg3.png"
-          alt=""
+          src="../src/assets/galleri2.webp"
+          alt="lys-grøn vase i keramik"
           title="Titel 3"
         />
       </div>
@@ -46,19 +49,34 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       <div class="felt4">
         <span class="scroll-title">Scroll</span>
         <div class="scroll_produkt">
-          <img src="/src/assets/mobilimg4.png" alt="placeholder" />
+          <img
+            src="../src/assets/galleri8.webp"
+            alt="brun keramik kop fremstillet i japan"
+          />
         </div>
         <div class="scroll_produkt">
-          <img src="/src/assets/mobilimg4.png" alt="placeholder" />
+          <img
+            src="../src/assets/galleri8.webp"
+            alt="brun keramik kop fremstillet i japan"
+          />
         </div>
         <div class="scroll_produkt">
-          <img src="/src/assets/mobilimg4.png" alt="placeholder" />
+          <img
+            src="../src/assets/galleri8.webp"
+            alt="brun keramik kop fremstillet i japan"
+          />
         </div>
         <div class="scroll_produkt">
-          <img src="/src/assets/mobilimg4.png" alt="placeholder" />
+          <img
+            src="../src/assets/galleri8.webp"
+            alt="brun keramik kop fremstillet i japan"
+          />
         </div>
         <div class="scroll_produkt">
-          <img src="/src/assets/mobilimg4.png" alt="placeholder" />
+          <img
+            src="../src/assets/galleri8.webp"
+            alt="brun keramik kop fremstillet i japan"
+          />
         </div>
       </div>
 
@@ -67,7 +85,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         <div class="felt5">
           <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
           <ImgTekstGalleri
-            src="/src/assets/mobilimg5.png"
+            src="../src/assets/grid3.webp"
             alt=""
             title="Titel 5"
           />
@@ -75,8 +93,8 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
         <div class="felt6">
           <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
           <ImgTekstGalleri
-            src="/src/assets/mobilimg6.png"
-            alt=""
+            src="../src/assets/galleri4.webp"
+            alt="unika rispapirs lampe med rød skitse"
             title="Titel 6"
           />
         </div>
@@ -85,16 +103,16 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       <div class="felt7">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="/src/assets/mobilimg7.png"
-          alt=""
+          src="../src/assets/galleri6.webp"
+          alt="en hvid keramik vase med brede riller"
           title="Titel 7"
         />
       </div>
       <div class="felt8">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="/src/assets/mobilimg8.png"
-          alt=""
+          src="../src/assets/galleri7.webp"
+          alt="to hvide skåle i keramik stablet ovenpå hinanden"
           title="Titel 8"
         />
       </div>
@@ -102,16 +120,16 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       <div class="felt9">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="/src/assets/mobilimg9.png"
-          alt=""
+          src="../src/assets/lokal_galleri.webp"
+          alt="kaffe og diverse på et bord på lokal"
           title="Titel 9"
         />
       </div>
       <div class="felt10">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <ImgTekstGalleri
-          src="/src/assets/mobilimg10.png"
-          alt=""
+          src="../src/assets/galleri5.webp"
+          alt="keramik skulptur af en dame med mønstret tørklæde"
           title="Titel 10"
         />
       </div>
@@ -135,16 +153,12 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
   <Footer />
 
   <style>
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--bg);
-    }
     main {
       padding-top: 1rem;
     }
 
     select {
-      appearance: none; /* Fjerner standard-styling */
+      appearance: none; /*Fjerner standard-styling */
       -webkit-appearance: none;
       -moz-appearance: none;
       background: transparent;
@@ -196,13 +210,12 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       margin-bottom: 2rem;
       padding-top: clamp(8rem, 22vw, 25rem);
       padding-left: 1rem;
-      position: relative;
     }
     .bg_lamper {
-      background-image: url("/src/assets/lamper.png");
+      background-image: url("../assets/kontakt_lamper.webp");
       background-position: top -8px right 1px;
       background-repeat: no-repeat;
-      background-size: 50%;
+      background-size: 70%;
     }
     .galleri_tekst {
       font-family: "Futura", sans-serif;
@@ -264,7 +277,7 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
       grid-row: 4 / span 1; /* placerer feltet i anden række */
       grid-column: 1 / span 2; /*feltet fylder hele bredden af gridet*/
       display: flex;
-      background-image: url("/src/assets/arrow_right.svg");
+      background-image: url("../assets/arrow_right.svg");
       background-repeat: no-repeat;
       background-position: right 10px bottom 10px;
       background-size: clamp(1rem, 5vw, 2.5rem);
@@ -331,8 +344,8 @@ import ImgTekstGalleri from "../components/ImgTekstGalleri.astro";
 
     @media (min-width: 800px) {
       .bg_lamper {
-        background-position: top -90px right 10px;
-        background-size: 45%;
+        background-position: top -70px right 10px;
+        background-size: 50%;
       }
       .galleri_hero {
         padding-left: 2rem;
