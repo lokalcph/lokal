@@ -3,17 +3,26 @@
 // 'src' = stien til billedet
 // 'alt' = alternativ tekst til billedet (for skærmlæsere og SEO)
 // 'title' = teksten der vises ovenpå billedet
-const { src, alt, title } = Astro.props;
+const { src, alt, title, price, class: className } = Astro.props;
 ---
 
-<!-- HOVEDCONTAINEREN --><!-- Position: relative gør det muligt at placere teksten (image-title) absolut i forhold til denne wrapper. -->
-<div class="image-wrapper">
-  <!-- TITLEN PÅ BILLEDET -->
-  <!-- giver klassen image-title som bruger absolut positionering-->
+<!-- HOVEDCONTAINEREN --><!-- Position: relative gør det muligt at placere teksten (image-title) absolut i forhold til denne wrapper. --><!-- <div class="image-wrapper">
   <span class="image-title">{title}</span>
-  <!-- BILLEDET -->
-  <!--   src og alt kommer fra de props der sendes til komponenten.-->
-  <img src={src} alt={alt} />
+  <img src={src} alt={alt} class={className} />
+</div> -->
+<div class="image-wrapper">
+  <span class="image-title">
+    {title}
+    {
+      price !== undefined && (
+        <>
+          <span class="vertical-bar">|</span>
+          <span class="product-price">{price},-</span>
+        </>
+      )
+    }
+  </span>
+  <img src={src} alt={alt} class={className} />
 </div>
 
 <!-- STYLE TIL BILLEDE OG TEKST -->
@@ -51,9 +60,13 @@ const { src, alt, title } = Astro.props;
     object-fit: cover;
     display: block;
   }
+
   @media (min-width: 800px) {
     .image-title {
       font-size: 1rem; /* Større tekst på større skærme */
+    }
+    .vertical-bar {
+      margin: 0 0.4rem;
     }
   }
 </style>
