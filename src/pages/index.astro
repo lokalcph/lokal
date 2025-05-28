@@ -29,11 +29,11 @@ import Layout from "../layouts/Layout.astro";
 
     <section class="info">
       <div class="info_text">
-        <h2 class="se_menu">se menu</h2>
+        <h2 class="se_menu"><a href="#se_menu">se menu</a></h2>
         <div class="line"></div>
         <div class="line" id="longer"></div>
         <p>åben mandag til fredag 8.00 - 16.00</p>
-        <p>lørdag 9.00 - 15.00</p>
+        <p>lørdag - søndag 9.00 - 15.00</p>
         <div class="line"></div>
         <p>book os til dit private arrangement</p>
         <a href="/kontakt">læs mere her</a>
@@ -323,7 +323,7 @@ import Layout from "../layouts/Layout.astro";
         margin: 20px 0 20px 60px;
       }
 
-      h2 {
+      .se_menu a {
         font-family: "Futura", sans-serif;
         font-weight: 500;
         color: var(--black);
@@ -331,9 +331,10 @@ import Layout from "../layouts/Layout.astro";
         line-height: 1;
         margin: 0;
         padding: 0 0.5rem;
+        text-decoration: none;
       }
 
-      h2:hover {
+      .se_menu a:hover {
         color: var(--bg);
         -webkit-text-stroke: 1px var(--black);
       }
