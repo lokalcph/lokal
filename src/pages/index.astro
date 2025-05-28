@@ -36,7 +36,7 @@ import Layout from "../layouts/Layout.astro";
         <p>lørdag - søndag 9.00 - 15.00</p>
         <div class="line"></div>
         <p>book os til dit private arrangement</p>
-        <a href="/kontakt">læs mere her</a>
+        <a class="mere_her" href="/kontakt">læs mere her</a>
       </div>
       <img
         src="src/assets/lokal_index.webp"
@@ -352,13 +352,16 @@ import Layout from "../layouts/Layout.astro";
         font-family: "Futura", sans-serif;
         color: var(--black);
         font-size: 0.9375rem;
-        text-decoration: none;
         padding-right: 0.5rem;
+        text-decoration: none;
       }
 
-      a:hover {
-        text-decoration: underline;
+      a.mere_her {
         color: var(--accent);
+        text-decoration: underline;
+      }
+      a:hover {
+        scale: 1.01;
       }
 
       /* IMG */
@@ -845,8 +848,7 @@ import Layout from "../layouts/Layout.astro";
         }
 
         a:hover {
-          text-decoration: underline;
-          color: var(--accent);
+          scale: 1.01;
         }
 
         /* IMG */
