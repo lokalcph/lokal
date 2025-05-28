@@ -68,7 +68,11 @@ export async function getStaticPaths() {
           <div class="line"></div>
           <p>find den på sønder boulevard 59</p>
           <a class="back_cta" href="/galleri">
-            <img src="/src/assets/pil.svg" alt="" class="arrow_icon" />
+            <img
+              src="/src/assets/arrow_right.svg"
+              alt="en cta knap som forestiller en pil"
+              class="arrow_icon"
+            />
             tilbage
           </a>
           <div class="line"></div>
@@ -145,7 +149,7 @@ export async function getStaticPaths() {
   .arrow_icon {
     width: clamp(1.4rem, 2vw, 1.6rem);
     height: clamp(1.4rem, 2vw, 1.6rem);
-    margin-right: 0.15rem;
+    margin-right: 0.3rem;
     transform: scaleX(-1); /* spejlvender pilen så den peger den rigtige vej */
   }
 
