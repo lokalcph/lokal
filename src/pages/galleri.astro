@@ -501,13 +501,16 @@ console.log(data);
         align-self: flex-start;
         font-size: 1rem;
       }
+
+      /* felt 5 og 6 ligger i en grid, og følger derfor ikke det store grid med 12 kolonner. Den har istedet 2 kolonner, og spanner og fylder 1 kolonne hver i eget grid.*/
       .felt5 {
-        grid-column: 8 / 12;
+        grid-column: 2;
+        grid-row: 1 / 2;
         border-right: none;
       }
 
       .felt6 {
-        grid-column: 4 / 8;
+        grid-column: 1;
         grid-row: 1 / 2;
         border-right: 2px solid black;
       }
