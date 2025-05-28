@@ -47,14 +47,21 @@
     height: 100vh; /* Fuld højde for mobil */
     width: 100%;
     margin-top: 7vh;
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column;
+    justify-content: space-between; /* Ensure content is spaced properly */
+    overflow: hidden; /* Prevent content overflow */
   }
 
   /* Grid til lokal og kontakt */
   .grid {
     display: grid;
     grid-template-columns: 3fr 1fr; /* 3/1 fordeling mellem h1 og kontakt */
-    align-items: center; /* så de står nede i bunden fx */
-    padding-top: 19rem;
+    /* align-items: center; /* så de står nede i bunden fx */
+    /* padding-top: 20rem;  */
+    align-items: end; /* Align items at the bottom of the grid */
+    height: 100%; /* Make the grid fill the footer */
+    padding: 0; /* Remove unnecessary padding */
   }
 
   /* Styling tekst */
@@ -67,6 +74,7 @@
     line-height: 1;
     align-self: end; /* det skal placeres i bunden af rækken */
     margin: 0;
+    margin-bottom: -0.6rem;
   }
   .sociale {
     font-family: "Futura", sans-serif;
@@ -124,14 +132,12 @@
       margin-top: 7vh; /* Ingen margin-top for desktop */
     }
 
-    .grid {
-      padding-top: 6.5rem;
+    h1 {
+      margin-bottom: -2rem;
     }
-  }
-
-  @media screen and (max-width: 450px) {
     .grid {
-      padding-top: 31rem;
+      height: 100%; /* Ensure grid fills the footer */
+      align-items: end; /* Align items at the bottom */
     }
   }
 </style>
