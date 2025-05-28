@@ -115,6 +115,16 @@ console.log(data);
       <div class="img_grid2">
         <div class="felt5">
           <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
+          <a href={`/produkter/${data[7].product_slug}`}>
+            <ImgTekstGalleri
+              src={`/galleri_imgs/${data[7].image}`}
+              alt={data[7].product_name}
+              title={data[7].product_name}
+            />
+          </a>
+        </div>
+        <div class="felt6">
+          <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
           <a href={`/produkter/${data[3].product_slug}`}>
             <ImgTekstGalleri
               src={`/galleri_imgs/${data[3].image}`}
@@ -123,35 +133,25 @@ console.log(data);
             />
           </a>
         </div>
-        <div class="felt6">
-          <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-          <a href={`/produkter/${data[4].product_slug}`}>
-            <ImgTekstGalleri
-              src={`/galleri_imgs/${data[4].image}`}
-              alt={data[4].product_name}
-              title={data[4].product_name}
-            />
-          </a>
-        </div>
       </div>
 
       <div class="felt7">
+        <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
+        <a href={`/produkter/${data[4].product_slug}`}>
+          <ImgTekstGalleri
+            src={`/galleri_imgs/${data[4].image}`}
+            alt={data[4].product_name}
+            title={data[4].product_name}
+          />
+        </a>
+      </div>
+      <div class="felt8">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <a href={`/produkter/${data[5].product_slug}`}>
           <ImgTekstGalleri
             src={`/galleri_imgs/${data[5].image}`}
             alt={data[5].product_name}
             title={data[5].product_name}
-          />
-        </a>
-      </div>
-      <div class="felt8">
-        <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-        <a href={`/produkter/${data[6].product_slug}`}>
-          <ImgTekstGalleri
-            src={`/galleri_imgs/${data[6].image}`}
-            alt={data[6].product_name}
-            title={data[6].product_name}
           />
         </a>
       </div>
@@ -165,11 +165,11 @@ console.log(data);
       </div>
       <div class="felt10">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-        <a href={`/produkter/${data[7].product_slug}`}>
+        <a href={`/produkter/${data[6].product_slug}`}>
           <ImgTekstGalleri
-            src={`/galleri_imgs/${data[7].image}`}
-            alt={data[7].product_name}
-            title={data[7].product_name}
+            src={`/galleri_imgs/${data[6].image}`}
+            alt={data[6].product_name}
+            title={data[6].product_name}
           />
         </a>
       </div>
