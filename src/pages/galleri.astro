@@ -190,20 +190,6 @@ console.log(data);
         </a>
       </div>
     </div>
-    <div class="filter_productlist">
-      <label for="filter" class="filter_label">
-        <img
-          src="/src/assets/arrow_right.svg"
-          alt="filter pil"
-          class="filter_icon"
-        />
-        <span class="filter_text">Se gamle produkter</span>
-      </label>
-
-      <select name="filter" id="filter">
-        <option value="all" selected="selected">se gamle produkter</option>
-      </select>
-    </div>
   </main>
 
   <Footer />
@@ -214,51 +200,7 @@ console.log(data);
       transform: scale(1.05);
       transition: transform 0.3s ease;
     }
-    select {
-      appearance: none; /*Fjerner standard-styling */
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background: transparent;
-      border: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0; /* Gør select usynlig, men stadig funktionel */
-      cursor: pointer;
-    }
 
-    .filter_productlist {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 5px;
-      cursor: pointer;
-      position: relative;
-      margin: 20px;
-    }
-
-    .filter_label {
-      display: flex;
-      align-items: center;
-
-      gap: 5px;
-      cursor: pointer;
-    }
-    .filter_icon {
-      width: 2rem;
-      height: 2rem;
-      padding-right: 0.3rem;
-      cursor: pointer;
-      aspect-ratio: 1 / 1;
-    }
-    .filter_text {
-      color: var(--black);
-      font-family: "Futura", sans-serif;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
     .galleri_hero {
       display: flex;
       /* så 'os' følger 'kontakt' nederst */
@@ -298,6 +240,7 @@ console.log(data);
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-auto-rows: auto; /* automatisk tilpasser højden på rækkerne */
+      padding-bottom: 3rem;
     }
     /*sikrer at billederne fylder hele feltet og ikke forvrænges*/
     .grid img {
@@ -418,18 +361,12 @@ console.log(data);
       .unika_tekst {
         font-size: 5.6rem;
       }
-      .filter_text {
-        font-size: 2.8rem;
-      }
-      .filter_icon {
-        width: 4rem;
-        height: 4rem;
-        padding-right: 1rem;
-      }
+
       .grid {
         grid-template-columns: repeat(12, 1fr); /* 3 kolonner i stedet for 2 */
         grid-auto-rows: 500px;
         border-top: 2px solid black;
+        padding-bottom: 6rem;
       }
 
       .felt1 {
