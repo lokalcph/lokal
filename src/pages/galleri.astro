@@ -115,6 +115,16 @@ console.log(data);
       <div class="img_grid2">
         <div class="felt5">
           <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
+          <a href={`/produkter/${data[7].product_slug}`}>
+            <ImgTekstGalleri
+              src={`/galleri_imgs/${data[7].image}`}
+              alt={data[7].product_name}
+              title={data[7].product_name}
+            />
+          </a>
+        </div>
+        <div class="felt6">
+          <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
           <a href={`/produkter/${data[3].product_slug}`}>
             <ImgTekstGalleri
               src={`/galleri_imgs/${data[3].image}`}
@@ -123,35 +133,25 @@ console.log(data);
             />
           </a>
         </div>
-        <div class="felt6">
-          <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-          <a href={`/produkter/${data[4].product_slug}`}>
-            <ImgTekstGalleri
-              src={`/galleri_imgs/${data[4].image}`}
-              alt={data[4].product_name}
-              title={data[4].product_name}
-            />
-          </a>
-        </div>
       </div>
 
       <div class="felt7">
+        <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
+        <a href={`/produkter/${data[4].product_slug}`}>
+          <ImgTekstGalleri
+            src={`/galleri_imgs/${data[4].image}`}
+            alt={data[4].product_name}
+            title={data[4].product_name}
+          />
+        </a>
+      </div>
+      <div class="felt8">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
         <a href={`/produkter/${data[5].product_slug}`}>
           <ImgTekstGalleri
             src={`/galleri_imgs/${data[5].image}`}
             alt={data[5].product_name}
             title={data[5].product_name}
-          />
-        </a>
-      </div>
-      <div class="felt8">
-        <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-        <a href={`/produkter/${data[6].product_slug}`}>
-          <ImgTekstGalleri
-            src={`/galleri_imgs/${data[6].image}`}
-            alt={data[6].product_name}
-            title={data[6].product_name}
           />
         </a>
       </div>
@@ -165,11 +165,11 @@ console.log(data);
       </div>
       <div class="felt10">
         <!-- Bruger komponenten ImgTekstGalleri og giver den et billede + tekst -->
-        <a href={`/produkter/${data[7].product_slug}`}>
+        <a href={`/produkter/${data[6].product_slug}`}>
           <ImgTekstGalleri
-            src={`/galleri_imgs/${data[7].image}`}
-            alt={data[7].product_name}
-            title={data[7].product_name}
+            src={`/galleri_imgs/${data[6].image}`}
+            alt={data[6].product_name}
+            title={data[6].product_name}
           />
         </a>
       </div>
@@ -292,9 +292,12 @@ console.log(data);
       border-bottom: 2px solid black;
     }
     .felt2 {
-      grid-row: 2 / span 1; /* placerer feltet i første række */
-      grid-column: 2 / span 1; /* placerer feltet i første kolonne */
+      grid-row: 3 / 4;
+      /* grid-column: 2 / span 1;  */
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
     }
+
     .felt2_tekst {
       font-family: "Futura", sans-serif;
       font-size: clamp(0.8rem, 3.7vw, 1.2rem);
@@ -302,11 +305,12 @@ console.log(data);
       color: var(--black);
       grid-column: 1 / span 2; /*feltet fylder hele bredden af gridet*/
       grid-row: 2;
-      padding-top: 1rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
     }
     .felt3 {
       border-top: 2px solid black;
-      grid-column: 1 / -1; /* placerer feltet i første kolonne */
+      grid-column: 2 / 3; /* placerer feltet i første kolonne */
       border-bottom: 2px solid black;
     }
 
@@ -338,7 +342,6 @@ console.log(data);
     /* SCROLLBILLED */
     .scroll_produkt {
       min-width: 40%; /* sikre at man kan se flere billeder på en gang: flere billeder i viewpointen */
-      flex-shrink: 0; /* forhindrer at billedet skrumper */
       margin-bottom: 30px;
     }
     /*række med 2 kolonner: 1 del og 2 dele*/
@@ -408,7 +411,9 @@ console.log(data);
         grid-row: 1 / 2;
         border-bottom: none;
         border-right: 2px solid black;
+        border-top: none;
       }
+
       .felt2_tekst {
         grid-column: 1 / span 6;
         grid-row: 1 / 2;
@@ -459,6 +464,16 @@ console.log(data);
         margin-top: 1rem;
         align-self: flex-start;
         font-size: 1rem;
+      }
+      .felt5 {
+        grid-column: 8 / 12;
+        border-right: none;
+      }
+
+      .felt6 {
+        grid-column: 4 / 8;
+        grid-row: 1 / 2;
+        border-right: 2px solid black;
       }
 
       .felt7 {
