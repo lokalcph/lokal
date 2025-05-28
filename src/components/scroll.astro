@@ -34,7 +34,13 @@ const { text } = Astro.props;
   <div class="scroll_container" id="scroll_container">
     {
       images.map((img, i) => (
-        <img src={img} alt={`Billede ${i + 1}`} class="galleri_img" />
+        <img
+          src={img}
+          alt={`Billede ${i + 1}`}
+          class="galleri_img"
+          width="230"
+          height="280"
+        />
       ))
     }
   </div>
