@@ -72,9 +72,12 @@
     font-weight: 700;
     grid-column: 1;
     line-height: 1;
-    align-self: end; /* det skal placeres i bunden af rækken */
+    align-self: stretch; /* det skal placeres i bunden af rækken */
     margin: 0;
     margin-bottom: -0.6rem;
+    display: flex;
+    justify-content: center; /* Center text horizontally */
+    align-items: flex-end; /* Align text at the bottom */
   }
   .sociale {
     font-family: "Futura", sans-serif;
@@ -99,7 +102,8 @@
     font-weight: 500;
     font-size: clamp(0.7rem, 2vw, 1.1rem); /* responsivt */
     grid-column: 2;
-    padding-right: 1.5rem; /* Tilføjer lidt afstand til højre */
+    margin-right: 0.8rem;
+    align-self: end; /* Align at the bottom of the grid */
   }
 
   .footer a,
